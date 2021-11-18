@@ -1,0 +1,38 @@
+.film__container {
+    box-sizing: border-box;
+    @extend %flex-centered;
+    flex-direction: column;
+    padding: 48px 20px;
+
+    &__title {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    }    
+
+    &__feature-item:not(:last-child) {
+    margin-bottom: 10px;
+    }    
+
+    &__img {
+    margin-bottom: 30px;
+    }
+}
+
+.film__feature-item__text {
+    font-weight: 500;
+}
+
+.btn {
+    width: 113px;
+    height: 44px;
+    text-align: center;
+    text-transform: uppercase;
+
+    &-container {
+        @extend %flex-centered; 
+    }
+
+    &:first-child {
+        margin-right: 15px;
+    }
+}
