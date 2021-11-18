@@ -1,0 +1,7 @@
+@mixin font-properties($fs, $lh, $ls) {
+  font-size: $fs + px;
+  line-height: $lh;
+  letter-spacing: $ls + em;
+}
+// Use case:
+// @include font-properties(14, 1.14, 0.03);
