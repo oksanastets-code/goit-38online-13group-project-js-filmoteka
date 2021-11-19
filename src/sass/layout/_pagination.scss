@@ -4,8 +4,8 @@
   @media screen and (min-width: $tablet) {
     padding-top: 50px;
     padding-bottom: 60px;
-    // padding-left: 197px;
-    // padding-right: 197px;
+    padding-left: 197px;
+    padding-right: 197px;
   }
   @media screen and (min-width: $desktop) {
     padding-top: 46px;
@@ -16,9 +16,16 @@
 }
 .pagination-mobile {
   display: flex;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
 }
 .pagination-tablet {
   display: flex;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 ul {
   display: flex;
