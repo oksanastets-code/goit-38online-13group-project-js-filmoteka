@@ -1,0 +1,28 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+img {
+  @extend %null;
+}
+ul {
+  list-style: none;
+  @extend %null;
+}
+a {
+  text-decoration: none;
+}
+button:focus,
+a:focus,
+input:focus {
+  outline: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
