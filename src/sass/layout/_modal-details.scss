@@ -1,32 +1,162 @@
-.film__container {
+.modal {
+    width: 320px;
+
+    @media screen and (min-width:768px) and (max-width: 1023.5px) {
+        width: 768px;
+    }
+
+    @media screen and (min-width:1024px) {
+        width: 1024px;
+    }
+
+}
+// .modal_container {
+//     
+//     transform: translate(-50%, -50%) scale(1);
+//     width: 280px;
+//     height: 90vh;
+//     overflow-y: auto;
+//     background-color: #fff;
+//     border: 1px solid rgba(0,0,0,0.1);
+//     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+//     padding: 20px;
+// }
+
+
+
+.film {
+    position: absolute;
+    top: 107%;
+    left: 50%;
     box-sizing: border-box;
-    @extend %flex-centered;
+    display: flex;
+    align-items: center;
     flex-direction: column;
+    width: 280px;
+    
     padding: 48px 20px;
+    font-weight: 500;
+    font-size: $primary-font-size;
+    color: $primary-text-color;
+    background-color: $primary-background-color;
+    overflow-y: auto;
+    transform: translate(-50%, -50%) scale(1);
+
+    @media screen and (min-width:768px) and (max-width: 1023.5px) {
+        width: 618px;
+        top: 50%;
+        flex-direction: row;
+        padding: 40px 28px;
+    }
+
+    
 
     &__title {
+    color: $primary-text-color;    
     text-transform: uppercase;
+    font-size: 20px;
+    line-height: 1.17;
+    font-weight: 500;
     margin-bottom: 20px;
+    margin-right: auto;
     }    
+    
 
-    &__feature-item:not(:last-child) {
+
+    &__feature {
+        margin-bottom: 20px;
+        width: 240px;
+    }
+
+    &__feature-line:not(:last-child) {
     margin-bottom: 10px;
     }    
 
     &__img {
+    width: 240px;
+    height: 357px;
     margin-bottom: 30px;
+    display: block;
+    border-radius: 5px;
+    outline: 0.5px dotted $primary-text-color;
+    overflow: hidden;
+
+        @media screen and (min-width:768px) and (max-width: 1023.5px) {
+            width: 264px;
+            height: 374px;
+            margin-right: 32px;
+            margin-bottom: auto;
+            
+        }
+    }
+
+    &__description {
+        line-height: 1.66;
     }
 }
 
-.film__feature-item__text {
-    font-weight: 500;
+
+.film__feature-line {
+  
+    text-align: left;
+    line-height: 1.33;
+    font-size: $primary-font-size;
+}
+
+.film__feature-option {
+    color: $card-text-color;
+   
+}
+
+.film__feature-details {
+    color: $primary-text-color;
+}   
+.film__about-container {
+    margin-bottom: 20px;
+}
+.about {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.film__info-container {
+    width: 264px;
 }
 
 .btn {
     width: 113px;
     height: 44px;
+    font-weight: 500;
+    line-height: 1.33;
     text-align: center;
     text-transform: uppercase;
+    background-color: $primary-background-color;
+    border-radius: 5px;
+   
+    cursor: pointer;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        @media screen and (min-width:768px) and (max-width: 1023.5px) {
+            width: 125px;
+        }
+
+
+
+    &:active {
+        background-color: $accent-color;
+        color: $secondary-text-color;
+        border-color: $accent-color;
+    }
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+        0px 4px 4px rgba(0, 0, 0, 0.06),
+        1px 4px 6px rgba(0, 0, 0, 0.16);;
+    }
+    
+    
+    
 
     &-container {
         @extend %flex-centered; 
@@ -36,3 +166,55 @@
         margin-right: 15px;
     }
 }
+
+// .btn-320 {
+
+// }
+// .btn-768 {
+    // position: absolute;
+    // clip: rect(0 0 0 0);
+    // width: 1px;
+    // height: 1px;
+    // margin: -1px;
+    // border: 0;
+    // padding: 0;
+    // overflow: hidden;
+// }
+.modal__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background-color: $primary-background-color;
+    cursor: pointer;
+    border: none;
+   background-image: url(".././images/Icons/close.svg");
+
+}
+
+.modal__close-icon {
+    width: 14px;
+    height: 14px;
+    fill: black;
+}
+.backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+    opacity: 1;
+    overflow-y: scroll;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+// .is-hidden {
+//     visibility: hidden;
+//     opacity: 0;
+//     pointer-events: none;
+//     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+// }
+
