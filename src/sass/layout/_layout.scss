@@ -1,13 +1,3 @@
-.footer-container{
-    background-color: #F7F7F7;
-    height: 77px;
-    text-align: center;
-    justify-content: center;
-   
-    
-}
-
-.footer-text{
-   padding-top: 30px;
-   padding-bottom: 28px;
-}
+@import './_header';
+@import './_modal-details';
+@import './_footer';
