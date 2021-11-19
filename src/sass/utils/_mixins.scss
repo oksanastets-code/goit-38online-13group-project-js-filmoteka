@@ -5,3 +5,8 @@
 }
 // Use case:
 // @include font-properties(14, 1.14, 0.03);
+
+@mixin font-properties-cutted($fs, $lh) {
+  font-size: $fs + px;
+  line-height: $lh;
+}
