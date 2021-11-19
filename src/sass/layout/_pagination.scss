@@ -37,13 +37,17 @@ ul {
   border: none;
   border-radius: 5px;
 
-  fill: $primary-text-color;
+  //   fill: $primary-text-color;
   //   color: ;
   background-color: $footer-background-color;
   //   font-weight: 700;
   //   @include font-properties(16, 1.875, 0.06);
 
   cursor: pointer;
+}
+.arrow {
+  outline: 1px solid black;
+  fill: currentColor;
 }
 .pagination-page {
   width: 40px;
@@ -52,10 +56,7 @@ ul {
   border: none;
   border-radius: 5px;
 
-  color: $primary-text-color;
   background-color: transparent;
-  font-weight: 500;
-  @include font-properties-cutted(12, 1.33);
 
   cursor: pointer;
 }
@@ -75,4 +76,14 @@ ul {
   @include font-properties-cutted(12, 1.33);
 
   cursor: pointer;
+}
+.pagination-number {
+  color: $primary-text-color;
+  font-weight: 500;
+  @include font-properties-cutted(12, 1.33);
+}
+.pagination-number-active {
+  color: $secondary-text-color;
+  font-weight: 500;
+  @include font-properties-cutted(12, 1.33);
 }
