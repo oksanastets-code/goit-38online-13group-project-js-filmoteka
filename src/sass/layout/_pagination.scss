@@ -27,7 +27,7 @@
     display: none;
   }
 }
-ul {
+.buttons {
   display: flex;
 }
 .pagination-arrow-button {
@@ -46,7 +46,6 @@ ul {
   cursor: pointer;
 }
 .arrow {
-  outline: 1px solid black;
   stroke: currentColor;
 }
 .pagination-page {
