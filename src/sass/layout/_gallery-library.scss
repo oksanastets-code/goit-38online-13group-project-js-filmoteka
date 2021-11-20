@@ -1,0 +1,23 @@
+.movies {
+  padding-top: 20px;
+  padding-bottom: 40px;
+
+  @media only screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+  @media only screen and (min-width: 1024px) {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .galleryLibrary {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.galleryEmpty {
+  height: 100vh;
+}
