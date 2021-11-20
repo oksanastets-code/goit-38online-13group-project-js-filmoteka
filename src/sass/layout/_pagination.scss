@@ -78,6 +78,7 @@ ul {
   cursor: pointer;
 }
 .pagination-number {
+  font-family: $main-font;
   color: $primary-text-color;
   font-weight: 500;
   @include font-properties-cutted(12, 1.33);
