@@ -15,7 +15,7 @@
 
 .film {
     position: absolute;
-    top: 107%;
+    top: 20%;
     left: 50%;
     box-sizing: border-box;
     display: flex;
@@ -29,6 +29,8 @@
     background-color: $primary-background-color;
     overflow-y: auto;
     transform: translate(-50%, -50%) scale(1);
+    @include transition (transform);
+    
 
     @media screen and (min-width:768px) and (max-width: 1023.5px) {
         width: 618px;
@@ -243,12 +245,13 @@
     background-color: rgba(0,0,0,0.2);
     opacity: 1;
     overflow-y: scroll;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    @include transition (opacity);
 }
-// .is-hidden {
-//     visibility: hidden;
-//     opacity: 0;
-//     pointer-events: none;
-//     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-// }
+.backdrop.visually-hidden .film {
+    transform: translate(-50%, -50%) scale(0);
 
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
