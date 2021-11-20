@@ -1,0 +1,34 @@
+.library {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: 45px;
+
+  &__container {
+    padding-top: 46px;
+
+    @media screen and (min-width: $tablet) {
+      padding-top: 41px;
+    }
+  }
+  &__link {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.167;
+    text-transform: uppercase;
+
+    color: $secondary-text-color;
+  }
+  &__link:not(:last-child) {
+    margin-right: 39px;
+  }
+  &__link:focus,
+  &__link:hover {
+    color: $accent-text-color;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
+}
