@@ -5,7 +5,7 @@ import teamJson from '../JSON/Team.json';
 // подключить  basiclightbox !!!!!!!!!!!!!!!!!!!!
 
 import * as basicLightbox from 'basiclightbox';
-import 'basicLightbox/src/styles/main.scss';
+// import 'basicLightbox/src/styles/main.scss';
 
 const modalContainer = document.querySelector('#js-team-modal'); // добавить потом с футера
 modalContainer.addEventListener('click', openModal);
