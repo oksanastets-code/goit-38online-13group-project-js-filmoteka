@@ -1,0 +1,13 @@
+// Это будет на ul
+.card__container {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  @media screen and (min-width: $tablet) {
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // margin: -15px;
+  }
+}
+// дальше пойдут стили для li,img,title,text и так дальше
