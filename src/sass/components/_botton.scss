@@ -1,0 +1,47 @@
+.button {
+  height: 44px;
+  width: 130px;
+  padding: 10px;
+
+  border: 1px solid $secondary-text-color;
+  border-radius: 5px;
+  background-color: transparent;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: $secondary-text-color;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.333;
+
+  @media screen and (min-width: $tablet) {
+    width: 136px;
+  }
+
+  &:not(:last-child) {
+    margin-right: 20px;
+
+    @media screen and (min-width: $tablet) {
+      margin-right: 15px;
+    }
+  }
+  &:focus,
+  &:hover {
+    cursor: pointer;
+    border-color: $accent-text-color;
+    color: $accent-text-color;
+  }
+  &:focus,
+  &:hover.is-active-btn {
+    cursor: pointer;
+    border-color: $accent-text-color;
+    background-color: transparent;
+    color: $accent-text-color;
+  }
+}
+
+.is-active-btn {
+  border-color: transparent;
+  background-color: $accent-color;
+}
