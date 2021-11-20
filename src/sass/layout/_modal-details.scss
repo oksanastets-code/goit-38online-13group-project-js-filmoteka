@@ -10,17 +10,6 @@
     }
 
 }
-// .modal_container {
-//     
-//     transform: translate(-50%, -50%) scale(1);
-//     width: 280px;
-//     height: 90vh;
-//     overflow-y: auto;
-//     background-color: #fff;
-//     border: 1px solid rgba(0,0,0,0.1);
-//     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-//     padding: 20px;
-// }
 
 
 
@@ -33,7 +22,6 @@
     align-items: center;
     flex-direction: column;
     width: 280px;
-    
     padding: 48px 20px;
     font-weight: 500;
     font-size: $primary-font-size;
@@ -49,7 +37,14 @@
         padding: 40px 28px;
     }
 
-    
+    @media screen and (min-width: 1024px) {
+        top: 50%;
+        width: 882px;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 50px 30px 40px 30px;   
+       
+    }
 
     &__title {
     color: $primary-text-color;    
@@ -59,9 +54,12 @@
     font-weight: 500;
     margin-bottom: 20px;
     margin-right: auto;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 30px;
+        }
     }    
     
-
 
     &__feature {
         margin-bottom: 20px;
@@ -88,39 +86,68 @@
             margin-bottom: auto;
             
         }
+
+        @media screen and (min-width: 1024px) {
+            width: 396px;
+            height: 478px;
+            margin-right: 30px;
+
+        }
     }
 
     &__description {
         line-height: 1.66;
     }
+
+    &__feature-line {
+        text-align: left;
+        line-height: 1.33;
+        font-size: $primary-font-size;
+    }
+
+    &__feature-option {
+        color: $card-text-color;
+    }
+
+    &__feature-details {
+        color: $primary-text-color;
+    }   
+
+    &__about-container {
+        margin-bottom: 20px;
+    }
+
+
+    &__info-container {
+        width: 240px; 
+        
+        @media screen and (min-width:768px) and (max-width: 1023.5px) {
+          width: 264px;  
+        }
+    
+        @media screen and (min-width: 1024px) {
+            width: 396px;  
+        }
+        
+    }
+    
+
 }
 
 
-.film__feature-line {
-  
-    text-align: left;
-    line-height: 1.33;
-    font-size: $primary-font-size;
-}
-
-.film__feature-option {
-    color: $card-text-color;
-   
-}
-
-.film__feature-details {
-    color: $primary-text-color;
-}   
-.film__about-container {
-    margin-bottom: 20px;
-}
 .about {
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-.film__info-container {
-    width: 264px;
+.vote {
+   display: inline-block;
+   text-align: center;
+   color: $secondary-text-color; 
+   background-color: $accent-color;
+   width: 36px;
+   height: 16px;
+   border-radius: 3px;
 }
 
 .btn {
@@ -132,54 +159,49 @@
     text-transform: uppercase;
     background-color: $primary-background-color;
     border-radius: 5px;
-   
     cursor: pointer;
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding-left: 8.5px;
+    padding-right: 8.5px;
 
         @media screen and (min-width:768px) and (max-width: 1023.5px) {
             width: 125px;
         }
 
+        @media screen and (min-width: 1024px) {
+            width: 136px;  
+        }
 
+        
+    &-container {
+        @extend %flex-centered; 
 
-    &:active {
+        @media screen and (min-width: 1024px) {
+            justify-content: flex-start;
+        }
+        
+    }
+
+    &:first-child {
+        margin-right: 15px;
+    }
+
+    &--active {
         background-color: $accent-color;
         color: $secondary-text-color;
-        border-color: $accent-color;
+        border: 1px solid $accent-color;
+       
     }
 
     &:hover,
     &:focus {
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
         0px 4px 4px rgba(0, 0, 0, 0.06),
-        1px 4px 6px rgba(0, 0, 0, 0.16);;
-    }
-    
-    
-    
-
-    &-container {
-        @extend %flex-centered; 
+        1px 4px 6px rgba(0, 0, 0, 0.16);
     }
 
-    &:first-child {
-        margin-right: 15px;
-    }
 }
 
-// .btn-320 {
-
-// }
-// .btn-768 {
-    // position: absolute;
-    // clip: rect(0 0 0 0);
-    // width: 1px;
-    // height: 1px;
-    // margin: -1px;
-    // border: 0;
-    // padding: 0;
-    // overflow: hidden;
-// }
 .modal__close-btn {
     position: absolute;
     top: 10px;
@@ -190,7 +212,18 @@
     background-color: $primary-background-color;
     cursor: pointer;
     border: none;
-   background-image: url(".././images/Icons/close.svg");
+    border-radius: 5px;
+    background-image: url(".././images/Icons/close.svg");
+
+
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+        0px 4px 4px rgba(0, 0, 0, 0.06),
+        1px 4px 6px rgba(0, 0, 0, 0.16);
+        
+    }
 
 }
 
@@ -199,6 +232,7 @@
     height: 14px;
     fill: black;
 }
+
 .backdrop {
     position: fixed;
     left: 0;
