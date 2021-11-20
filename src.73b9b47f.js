@@ -23,4 +23,4 @@ var e,n=arguments[3];!function(t){"object"==typeof exports&&"undefined"!=typeof 
 },{"handlebars/dist/handlebars.runtime":"pAws"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/modalTeam.js"),require("./js/spinner");var e=s(require("./js/apiService.js")),r=s(require("./templates/movie-card.hbs"));function s(e){return e&&e.__esModule?e:{default:e}}const n=new e.default,t=document.querySelector(".card__container");function a(e){t.insertAdjacentHTML("beforeend",(0,r.default)(e))}n.fetchImages().then(a).then(e=>console.log(e));
 },{"./sass/main.scss":"clu1","./js/modalTeam.js":"fDFk","./js/spinner":"Sc1o","./js/apiService.js":"eQwa","./templates/movie-card.hbs":"WSZA"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-38online-13group-project-js-filmoteka/src.5f70c47f.js.map
+//# sourceMappingURL=/goit-38online-13group-project-js-filmoteka/src.73b9b47f.js.map
