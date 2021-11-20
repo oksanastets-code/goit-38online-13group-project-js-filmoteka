@@ -1,0 +1,16 @@
+body {
+  font-family: $main-font;
+  font-style: normal;
+  color: $primary-text-color;
+  //   width: 100%;
+  //   max-width: 100%;
+  //   overflow-x: hidden;
+}
+a {
+  font-family: inherit;
+  color: inherit;
+}
+button {
+  font-family: inherit;
+}
+// import 'basicLightbox/src/styles/main.scss';
