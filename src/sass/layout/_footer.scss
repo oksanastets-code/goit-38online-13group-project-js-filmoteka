@@ -4,7 +4,6 @@
   text-align: center;
   justify-content: center;
 
- 
 }
 
 .footer-text {
@@ -50,8 +49,6 @@
     font-size: 14px;
     line-height: 16px;
 
-    
-    
     padding-top: 28px;
     padding-bottom: 48px;
     display: flex;
@@ -60,18 +57,29 @@
     align-items: center;
     text-align: center;
     
-
+    
+  }
+}
+@media screen and (min-width: 320px) {
+.footer-developed {
+  margin-top: 10px;
   }
 }
 
+@media screen and (min-width: 768px){
+  .footer-developed {
+    margin-top: 0px;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+  .footer-developed {
+    margin-top: 0px;
+    }
+}
 .footer-hear{
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.footer-right{
 
-}
-.footer-developed{
-  margin-left: 48px;
-}
