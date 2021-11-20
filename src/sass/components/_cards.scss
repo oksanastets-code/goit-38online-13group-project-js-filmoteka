@@ -1,13 +1,90 @@
-// Это будет на ul
 .card__container {
   padding-top: 20px;
   padding-bottom: 40px;
+  margin: -15px;
   @media screen and (min-width: $tablet) {
+    padding-top: 60px;
     padding-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    // margin: -15px;
   }
 }
-// дальше пойдут стили для li,img,title,text и так дальше
+
+.movie {
+  margin: 15px;
+
+  min-height: 440px;
+  width: 280px;
+  border-radius: 5px;
+
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+  @media screen and (min-width: 321px) {
+    width: 294px;
+  }
+  @media screen and (min-width: 769px) {
+    width: 274px;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+    transform: scale(1.05);
+  }
+
+  &__imgBox {
+    height: 398px;
+    width: 280px;
+    margin-bottom: 10px;
+
+    overflow: hidden;
+    border-radius: 5px;
+
+    background-color: rgb(94, 92, 92);
+
+    @media screen and (min-width: 321px) {
+      width: 294px;
+    }
+    @media screen and (min-width: 769px) {
+      width: 274px;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+  }
+
+  &__infoBox {
+    padding: 0 5px;
+  }
+
+  &__title {
+    font-size: $primary-font-size;
+    font-weight: 500;
+    line-height: 14px;
+    line-height: 1.167;
+    text-transform: uppercase;
+    color: $primary-text-color;
+
+    @media screen and (min-width: 769px) {
+      line-height: 1.333;
+    }
+  }
+
+  &__info {
+    font-size: $primary-font-size;
+    font-weight: 500;
+    line-height: 1.333;
+    color: $accent-text-color;
+  }
+}
