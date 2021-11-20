@@ -1,6 +1,8 @@
 .logo {
-  display: flex;
-  align-items: center;
+  &__link {
+    display: flex;
+    align-items: center;
+  }
 
   &__title {
     display: none;
