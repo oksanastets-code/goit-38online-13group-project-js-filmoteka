@@ -1,0 +1,22 @@
+.logo {
+  display: flex;
+  align-items: center;
+
+  &__title {
+    display: none;
+
+    @media screen and (min-width: $tablet) {
+      display: block;
+      margin-left: 10px;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.167;
+      color: $secondary-text-color;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    stroke: #818181;
+  }
+}
