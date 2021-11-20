@@ -1,0 +1,90 @@
+.pagination-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @media screen and (min-width: $tablet) {
+    padding-top: 50px;
+    padding-bottom: 60px;
+    padding-left: 197px;
+    padding-right: 197px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-top: 46px;
+    padding-bottom: 60px;
+    padding-left: 325px;
+    padding-right: 325px;
+  }
+}
+.pagination-mobile {
+  display: flex;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+.pagination-tablet {
+  display: flex;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+ul {
+  display: flex;
+}
+.pagination-arrow-button {
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+
+  //   fill: $primary-text-color;
+  //   color: ;
+  background-color: $footer-background-color;
+  //   font-weight: 700;
+  //   @include font-properties(16, 1.875, 0.06);
+
+  cursor: pointer;
+}
+.arrow {
+  outline: 1px solid black;
+  fill: currentColor;
+}
+.pagination-page {
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+
+  background-color: transparent;
+
+  cursor: pointer;
+}
+.pagination-page-tablet {
+  width: 32px;
+}
+.pagination-page-active {
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+
+  color: $secondary-text-color;
+  background-color: $accent-text-color;
+  font-weight: 500;
+  @include font-properties-cutted(12, 1.33);
+
+  cursor: pointer;
+}
+.pagination-number {
+  font-family: $main-font;
+  color: $primary-text-color;
+  font-weight: 500;
+  @include font-properties-cutted(12, 1.33);
+}
+.pagination-number-active {
+  color: $secondary-text-color;
+  font-weight: 500;
+  @include font-properties-cutted(12, 1.33);
+}
