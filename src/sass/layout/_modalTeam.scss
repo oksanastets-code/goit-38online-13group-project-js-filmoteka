@@ -1,0 +1,149 @@
+.team__container {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  width: 300px;
+  max-width: 528px;
+  max-height: 100vh;
+  padding: 30px 20px 30px 20px;
+  //   background-color: $primary-background-color;
+  color: $secondary-text-color;
+  background-image: url('../images/bgTeamModal.jpg');
+  overflow-y: scroll;
+  @media screen and (min-width: $tablet) and (max-width: 1023px) {
+    margin: auto;
+    width: 628px;
+    height: 628px;
+    padding: 30px;
+  }
+  @media screen and (min-width: $desktop) {
+    min-width: 900px;
+    height: 700px;
+    padding: 30px;
+  }
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+}
+
+.team__title {
+  font-size: 20px;
+  color: $secondary-text-color;
+  &:hover {
+    color: $accent-color;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1023px) {
+    line-height: 1.16;
+    margin-bottom: 20px;
+    @media screen and (min-width: $desktop) {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+  }
+}
+
+.team__content {
+  text-align: center;
+}
+.team__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.team__item {
+  width: calc((100% - 20px) / 2);
+  margin-bottom: 20px;
+  margin-right: auto;
+  border-radius: 5px;
+  background-color: rgba($color: #01ff0e, $alpha: 0.5);
+
+  @media screen and (min-width: $desktop) {
+    width: calc((100% - 5px * 4) / 5);
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+.team__image {
+  margin: auto;
+  min-width: 100px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  transition: 500ms;
+  &:hover {
+    transform: scale(1.05);
+  }
+  @media screen and (min-width: $tablet) and (max-width: 1023px) {
+    margin-bottom: 10px;
+    min-width: 140px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 20px;
+    min-width: 160px;
+  }
+}
+.team__subtitle {
+  font-weight: 400px;
+  font-size: 14px;
+  @media screen and (min-width: $tablet) and (max-width: 1023px) {
+    margin-bottom: 10px;
+    font-size: 21px;
+    line-height: 1;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 1.15;
+  }
+}
+
+.team__text {
+  color: $accent-text-color;
+  line-height: 1.12;
+  @media screen and (min-width: $tablet) and (max-width: 1023px) {
+    margin-bottom: 10px;
+    font-size: 17px;
+    line-height: 1.15;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.1;
+  }
+}
+
+.github__icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+
+.close__button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  background-image: url('../images/Icons/close.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
