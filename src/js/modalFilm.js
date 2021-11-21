@@ -14,7 +14,7 @@ openModalEl.addEventListener('click', onClick);
 
 function onClick (event) {
     event.preventDefault();
-    if(event.target.nodeName !== 'IMG') {
+    if(event.target.nodeName !== 'IMG' && event.target.nodeName !== 'P') {
         return;
     }
     openModal ();  
@@ -56,6 +56,9 @@ function removeModalListener () {
 
 
 // // render modal with film
+
+// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
+
 // openModalEl.addEventListener('click', renderModal);
 
 
