@@ -14,6 +14,9 @@ openModalEl.addEventListener('click', onClick);
 
 function onClick (event) {
     event.preventDefault();
+    if(event.target.nodeName !== 'IMG') {
+        return;
+    }
     openModal ();  
 }
   
