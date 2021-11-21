@@ -7,4 +7,6 @@
   border: 0;
   padding: 0;
   overflow: hidden;
+  pointer-events: none;
+  @include transition (opacity);
 }
