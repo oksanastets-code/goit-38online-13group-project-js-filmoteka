@@ -18,10 +18,10 @@ const getFilm = new API();
 const imagesGallery = document.querySelector('.card__container');
 
 
-getFilm.fetchImages().then(renderImageCard).then(r => console.log(r));
-
-
+getFilm.getTrendingMovies().then(renderImageCard);
+// getFilm.getMovieById(8).then(renderImageCard);
 function renderImageCard(film) {
   imagesGallery.insertAdjacentHTML('beforeend', imageCardTmp(film));
 }
+
 // черновик запросов

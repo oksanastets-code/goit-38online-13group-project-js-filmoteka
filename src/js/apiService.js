@@ -2,23 +2,57 @@ const API_KEY = 'bffba07cef2d165abd193feceb46d279';
 
 const BASE_URL =  'https://api.themoviedb.org/3';
 
-export default class ImagesApiService {
+export default class moviesApiService {
   constructor() {
     this.query = '';
     this.page = 1;
-    this.firstArrivedElement = null;
 
   }
-  fetchImages() {
-
-    return fetch(`${BASE_URL}/trending/all/day?api_key=${API_KEY}`)
+  getTrendingMovies() {
+ 
+    return fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}`)
       .then(r => r.json())
-       .then(({ results }) => {
-         console.log(results);
-         return results;
-       });
+      .then(({ results }) => {      
+        this.getGenres()
+          .then(r => {
+          results.map(film => {
+            film.genre_ids = this.getGenreName(r, film.genre_ids);
+            
+          });
+               
+        });
+        // console.log(results);
+     return results;
+      });
   }
-    
+  getMovieById(id) {
+    return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
+      .then(r => r.json());
+  }
+
+  getGenres() {
+    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
+      .then(r => r.json())
+      .then(({ genres }) => {
+        return genres;
+      });
+  }
+
+  getGenreName(genres, numbers) {
+    const genreNames = [];
+    let genreNamesList = '';
+    numbers.forEach(number => {
+      genres.find(genre => {
+        if (number === genre.id) {
+          genreNames.push(genre.name);
+        }
+      });
+    });
+    genreNamesList = genreNames.join();
+    return genreNamesList ;
+  }
+
+
   incrementPage() {
     this.page += 1;
   }

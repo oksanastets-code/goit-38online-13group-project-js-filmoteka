@@ -1,55 +1,50 @@
 .modal {
-    width: 320px;
+  width: 320px;
 
-    @media screen and (min-width:768px) and (max-width: 1023.5px) {
-        width: 768px;
-    }
+  @media screen and (min-width: 768px) and (max-width: 1023.5px) {
+    width: 768px;
+  }
 
-    @media screen and (min-width:1024px) {
-        width: 1024px;
-    }
-
+  @media screen and (min-width: 1024px) {
+    width: 1024px;
+  }
 }
 
-
-
 .film {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 280px;
-    padding: 48px 20px;
-    font-weight: 500;
-    font-size: $primary-font-size;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 280px;
+  padding: 48px 20px;
+  font-weight: 500;
+  font-size: $primary-font-size;
+  color: $primary-text-color;
+  background-color: $primary-background-color;
+  overflow-y: auto;
+  transform: translate(-50%, -50%) scale(1);
+  @include transition(transform);
+
+  @media screen and (min-width: 768px) and (max-width: 1023.5px) {
+    width: 618px;
+    top: 50%;
+    flex-direction: row;
+    padding: 40px 28px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    top: 55%;
+    width: 882px;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 50px 30px 40px 30px;
+  }
+
+  &__title {
     color: $primary-text-color;
-    background-color: $primary-background-color;
-    overflow-y: auto;
-    transform: translate(-50%, -50%) scale(1);
-    @include transition (transform);
-    
-
-    @media screen and (min-width:768px) and (max-width: 1023.5px) {
-        width: 618px;
-        top: 50%;
-        flex-direction: row;
-        padding: 40px 28px;
-    }
-
-    @media screen and (min-width: 1024px) {
-        top: 55%;
-        width: 882px;
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 50px 30px 40px 30px;   
-       
-    }
-
-    &__title {
-    color: $primary-text-color;    
     text-transform: uppercase;
     font-size: 20px;
     line-height: 1.17;
@@ -57,22 +52,21 @@
     margin-bottom: 20px;
     margin-right: auto;
 
-        @media screen and (min-width: 1024px) {
-            font-size: 30px;
-        }
-    }    
-    
-
-    &__feature {
-        margin-bottom: 20px;
-        width: 240px;
+    @media screen and (min-width: 1024px) {
+      font-size: 30px;
     }
+  }
 
-    &__feature-line:not(:last-child) {
+  &__feature {
+    margin-bottom: 20px;
+    width: 240px;
+  }
+
+  &__feature-line:not(:last-child) {
     margin-bottom: 10px;
-    }    
+  }
 
-    &__img {
+  &__img {
     width: 240px;
     height: 357px;
     margin-bottom: 30px;
@@ -81,177 +75,159 @@
     outline: 0.5px dotted $primary-text-color;
     overflow: hidden;
 
-        @media screen and (min-width:768px) and (max-width: 1023.5px) {
-            width: 264px;
-            height: 374px;
-            margin-right: 32px;
-            margin-bottom: auto;
-            
-        }
-
-        @media screen and (min-width: 1024px) {
-            width: 396px;
-            height: 478px;
-            margin-right: 30px;
-
-        }
+    @media screen and (min-width: 768px) and (max-width: 1023.5px) {
+      width: 264px;
+      height: 374px;
+      margin-right: 32px;
+      margin-bottom: auto;
     }
 
-    &__description {
-        line-height: 1.66;
+    @media screen and (min-width: 1024px) {
+      width: 396px;
+      height: 478px;
+      margin-right: 30px;
+    }
+  }
+
+  &__description {
+    line-height: 1.66;
+  }
+
+  &__feature-line {
+    text-align: left;
+    line-height: 1.33;
+    font-size: $primary-font-size;
+  }
+
+  &__feature-option {
+    color: $card-text-color;
+  }
+
+  &__feature-details {
+    color: $primary-text-color;
+  }
+
+  &__about-container {
+    margin-bottom: 20px;
+  }
+
+  &__info-container {
+    width: 240px;
+
+    @media screen and (min-width: 768px) and (max-width: 1023.5px) {
+      width: 264px;
     }
 
-    &__feature-line {
-        text-align: left;
-        line-height: 1.33;
-        font-size: $primary-font-size;
+    @media screen and (min-width: 1024px) {
+      width: 396px;
     }
-
-    &__feature-option {
-        color: $card-text-color;
-    }
-
-    &__feature-details {
-        color: $primary-text-color;
-    }   
-
-    &__about-container {
-        margin-bottom: 20px;
-    }
-
-
-    &__info-container {
-        width: 240px; 
-        
-        @media screen and (min-width:768px) and (max-width: 1023.5px) {
-          width: 264px;  
-        }
-    
-        @media screen and (min-width: 1024px) {
-            width: 396px;  
-        }
-        
-    }
-    
-
+  }
 }
 
-
 .about {
-    text-transform: uppercase;
-    margin-bottom: 10px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .vote {
-   display: inline-block;
-   text-align: center;
-   color: $secondary-text-color; 
-   background-color: $accent-color;
-   width: 36px;
-   height: 16px;
-   border-radius: 3px;
+  display: inline-block;
+  text-align: center;
+  color: $secondary-text-color;
+  background-color: $accent-color;
+  width: 36px;
+  height: 16px;
+  border-radius: 3px;
 }
 
 .btn {
-    width: 113px;
-    height: 44px;
-    font-weight: 500;
-    line-height: 1.33;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: $primary-background-color;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    padding-left: 8.5px;
-    padding-right: 8.5px;
+  width: 113px;
+  height: 44px;
+  font-weight: 500;
+  line-height: 1.33;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: $primary-background-color;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: 8.5px;
+  padding-right: 8.5px;
 
-        @media screen and (min-width:768px) and (max-width: 1023.5px) {
-            width: 125px;
-        }
+  @media screen and (min-width: 768px) and (max-width: 1023.5px) {
+    width: 125px;
+  }
 
-        @media screen and (min-width: 1024px) {
-            width: 136px;  
-        }
+  @media screen and (min-width: 1024px) {
+    width: 136px;
+  }
 
-        
-    &-container {
-        @extend %flex-centered; 
+  &-container {
+    @extend %flex-centered;
 
-        @media screen and (min-width: 1024px) {
-            justify-content: flex-start;
-        }
-        
+    @media screen and (min-width: 1024px) {
+      justify-content: flex-start;
     }
+  }
 
-    &:first-child {
-        margin-right: 15px;
-    }
+  &:first-child {
+    margin-right: 15px;
+  }
 
-    &--active {
-        background-color: $accent-color;
-        color: $secondary-text-color;
-        border: 1px solid $accent-color;
-       
-    }
+  &--active {
+    background-color: $accent-color;
+    color: $secondary-text-color;
+    border: 1px solid $accent-color;
+  }
 
-    &:hover,
-    &:focus {
-        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-        0px 4px 4px rgba(0, 0, 0, 0.06),
-        1px 4px 6px rgba(0, 0, 0, 0.16);
-    }
-
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
 }
 
 .modal__close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    background-color: $primary-background-color;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-image: url(".././images/Icons/close.svg");
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: $primary-background-color;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-image: url('.././images/Icons/close.svg');
 
-
-
-    &:hover,
-    &:focus {
-        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-        0px 4px 4px rgba(0, 0, 0, 0.06),
-        1px 4px 6px rgba(0, 0, 0, 0.16);
-        
-    }
-
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
 }
 
 .modal__close-icon {
-    width: 14px;
-    height: 14px;
-    fill: black;
+  width: 14px;
+  height: 14px;
+  fill: black;
 }
 
 .backdrop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 20px;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.2);
-    opacity: 1;
-    overflow-y: scroll;
-    @include transition (opacity);
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  overflow-y: scroll;
+  @include transition(opacity);
 }
 .backdrop.visually-hidden .film {
-    transform: translate(-50%, -50%) scale(0);
-
+  transform: translate(-50%, -50%) scale(0);
 }
 
 .overflow-hidden {
-    overflow: hidden;
+  overflow: hidden;
 }
