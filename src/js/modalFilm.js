@@ -1,3 +1,4 @@
+
 import modalFilmTmp from '../templates/modalFilm.hbs';
 import ApiService from '../js/apiService.js';
 
@@ -51,25 +52,25 @@ function removeModalListener () {
 };
 
 
-// render modal with film
-openModalEl.addEventListener('click', renderModal);
+// // render modal with film
+// openModalEl.addEventListener('click', renderModal);
 
 
 
 
-// function renderModal(event) {
-//     const idQ = event.target.dataset.id;
-//     console.log('my request:', idQ);
+// // function renderModal(event) {
+// //     const idQ = event.target.dataset.id;
+// //     console.log('my request:', idQ);
 
-//     const getFilm = new ApiService();
-//     getFilm.fetchImages()
-//         .then((r.filter(x)) => {x.id === idQ}; )
-//          renderFilmCard;
-//            {
+// //     const getFilm = new ApiService();
+// //     getFilm.fetchImages()
+// //         .then((r.filter(x)) => {x.id === idQ}; )
+// //          renderFilmCard;
+// //            {
         
-// } 
-// console.log('my request:', r)
+// // } 
+// // console.log('my request:', r)
 
-function renderFilmCard(film) {
-    modalFilmCardEl.insertAdjacentHTML('beforeend', modalFilmTmp(film));
-};
+// function renderFilmCard(film) {
+//     modalFilmCardEl.insertAdjacentHTML('beforeend', modalFilmTmp(film));
+// };
