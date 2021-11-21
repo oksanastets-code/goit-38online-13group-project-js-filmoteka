@@ -1,12 +1,13 @@
 import modalFilmTmp from '../templates/modalFilm.hbs';
-
-// modal open
+import ApiService from '../js/apiService.js';
 
 const openModalEl = document.querySelector('.card__container');
 const closeModalEl = document.querySelector('.js-close-modal');
 const modalEl = document.querySelector('.js-modal');
 const bodyEl = document.querySelector('body');
+const modalFilmCardEl = document.querySelector('.js-film');
 
+// open/close modal
 openModalEl.addEventListener('click', onClick);
 
 
@@ -25,19 +26,23 @@ function openModal () {
     window.addEventListener('keydown', closeModalByEsc);
 }
 
-function closeModal () {
+function closeModal (event) {
+    if (event.target == this) {
     modalEl.classList.add('visually-hidden');
     bodyEl.classList.remove('overflow-hidden');
-    removeModalListener();
+    removeModalListener();}
+    // console.log('my request:', modalEl);
+    
 }
   
 function closeModalByEsc (event) {
     if (event.code === 'Escape') {
-    closeModal ();
+        modalEl.classList.add('visually-hidden');
+        bodyEl.classList.remove('overflow-hidden');
+        removeModalListener();
     }
 };
-  
-  
+    
 function removeModalListener () {
     closeModalEl.removeEventListener('click', closeModal);
     modalEl.removeEventListener('click', closeModal);
@@ -46,6 +51,25 @@ function removeModalListener () {
 };
 
 
+// render modal with film
+openModalEl.addEventListener('click', renderModal);
 
 
-// console.log('my request:', );
+
+
+// function renderModal(event) {
+//     const idQ = event.target.dataset.id;
+//     console.log('my request:', idQ);
+
+//     const getFilm = new ApiService();
+//     getFilm.fetchImages()
+//         .then((r.filter(x)) => {x.id === idQ}; )
+//          renderFilmCard;
+//            {
+        
+// } 
+// console.log('my request:', r)
+
+function renderFilmCard(film) {
+    modalFilmCardEl.insertAdjacentHTML('beforeend', modalFilmTmp(film));
+};

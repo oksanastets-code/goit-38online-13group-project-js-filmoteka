@@ -15,7 +15,7 @@
 
 .film {
     position: absolute;
-    top: 20%;
+    top: 60%;
     left: 50%;
     box-sizing: border-box;
     display: flex;
@@ -40,7 +40,7 @@
     }
 
     @media screen and (min-width: 1024px) {
-        top: 50%;
+        top: 55%;
         width: 882px;
         flex-direction: row;
         align-items: flex-start;
