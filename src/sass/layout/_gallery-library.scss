@@ -2,16 +2,16 @@
   padding-top: 20px;
   padding-bottom: 40px;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: $tablet) {
     padding-top: 40px;
     padding-bottom: 60px;
   }
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: $desktop) {
     padding-top: 50px;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
   .galleryLibrary {
     display: flex;
     flex-wrap: wrap;
