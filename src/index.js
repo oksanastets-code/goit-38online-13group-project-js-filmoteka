@@ -2,6 +2,8 @@ import './sass/main.scss';
 import './js/modalTeam.js';
 import './js/spinner';
 import './js/modalFilm.js'
+import './js/header-control.js';
+
 
 
 
