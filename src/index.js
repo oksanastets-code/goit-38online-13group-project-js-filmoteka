@@ -7,21 +7,3 @@ import './js/page-Library.js';
 
 
 
-// черновик запросов
-import API from './js/apiService.js';
-import imageCardTmp from './templates/movie-card.hbs';
-
-const getFilm = new API();
-
-
-
-const imagesGallery = document.querySelector('.card__container');
-
-
-getFilm.getTrendingMovies().then(renderImageCard);
-// getFilm.getMovieById(8).then(renderImageCard);
-function renderImageCard(film) {
-  imagesGallery.insertAdjacentHTML('beforeend', imageCardTmp(film));
-}
-
-// черновик запросов

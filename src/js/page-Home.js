@@ -1,6 +1,12 @@
 import refs from './get-refs';
+import API from './apiService.js';
+import renderMovieCard from './render-movie-card';
 
 refs.homeRef.addEventListener('click', onHomeClick);
+
+const getMovies = new API();
+
+getMovies.getTrendingMovies().then(renderMovieCard);
 
 function onHomeClick(e) {
   e.preventDefault();
@@ -10,3 +16,8 @@ function onHomeClick(e) {
   refs.homeRef.classList.add('is-active-page');
   refs.libraryRef.classList.remove('is-active-page');
 }
+
+
+
+
+

@@ -4,4 +4,5 @@ export default {
   headerRef: document.querySelector('.js-header'),
   headerInputRef: document.querySelector('.js-header-input'),
   headerBtnRef: document.querySelector('.js-header-buttons'),
+  cardsContainerRef: document.querySelector('.js-card-container')
 }
