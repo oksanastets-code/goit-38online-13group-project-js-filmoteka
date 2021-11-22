@@ -2,8 +2,8 @@ import './sass/main.scss';
 import './js/modalTeam.js';
 import './js/spinner';
 import './js/modalFilm.js'
-import './js/header-control.js';
-
+import './js/page-Home.js';
+import './js/page-Library.js';
 
 
 
@@ -18,10 +18,10 @@ const getFilm = new API();
 const imagesGallery = document.querySelector('.card__container');
 
 
-getFilm.fetchImages().then(renderImageCard).then(r => console.log(r));
-
-
+getFilm.getTrendingMovies().then(renderImageCard);
+// getFilm.getMovieById(8).then(renderImageCard);
 function renderImageCard(film) {
   imagesGallery.insertAdjacentHTML('beforeend', imageCardTmp(film));
 }
+
 // черновик запросов
