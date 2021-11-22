@@ -9,25 +9,32 @@ export default class moviesApiService {
 
   }
   getTrendingMovies() {
- 
     return fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}`)
       .then(r => r.json())
       .then(({ results }) => {      
-        this.getGenres()
+        return this.getGenres()
           .then(r => {
-          results.map(film => {
-            film.genre_ids = this.getGenreName(r, film.genre_ids);
-            
-          });
-               
-        });
-        // console.log(results);
-     return results;
+            return results.map(film => ({
+              ...film,
+              genre_ids: this.getGenreName(r, film.genre_ids)
+            })
+            );
+         });
       });
   }
   getMovieById(id) {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
-      .then(r => r.json());
+      .then(r => r.json())
+      .then(({ results }) => {      
+        return this.getGenres()
+          .then(r => {
+            return results.map(film => ({
+              ...film,
+              genre_ids: this.getGenreName(r, film.genre_ids)
+            })
+            );
+         });
+      });
   }
 
   getGenres() {
@@ -48,7 +55,7 @@ export default class moviesApiService {
         }
       });
     });
-    genreNamesList = genreNames.join();
+    genreNamesList = genreNames.join(', ');
     return genreNamesList ;
   }
 
@@ -66,9 +73,5 @@ export default class moviesApiService {
   }
   setQuery(newQuery) {
     this.query = newQuery;
-  }
-
-  getFirstElement() {
-    return this.firstArrivedElement;
   }
 }
