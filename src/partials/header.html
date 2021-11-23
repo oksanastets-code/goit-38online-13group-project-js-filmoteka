@@ -16,12 +16,21 @@
 
     <div class="header__query js-header-input">
       <div class="header__input__box">
-        <input class="header__input" name="header__input" type="text" autocomplete="off" placeholder="Search movies">
+        <form class="search-form" id="search-form">
+        <!-- <input class="header__input js-input-field" name="header__input" type="text" autocomplete="off" placeholder="Search movies"> -->
+                <input class="header__input js-input-field" name="query" type="text" autocomplete="off"
+                  placeholder="Search movies"/>
+
         <svg width="12" height="12" class="header__input__icon">
           <use href=./images/Icons/icons.svg#search></use>
         </svg>
+        </form>
       </div>
 
+    </div>
+
+    <div class="header__notification">
+      <p class="header__notification--text">Search result not successful. Try another keyword.</p>
     </div>
 
     <div class="header__buttons js-header-buttons visually-hidden">

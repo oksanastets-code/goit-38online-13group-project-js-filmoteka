@@ -5,4 +5,4 @@ import './js/modalFilm.js'
 import './js/page-Home.js';
 import './js/page-Library.js';
 import './js/localStorage.js';
-
+import './js/search.js';
