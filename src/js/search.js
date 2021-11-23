@@ -27,7 +27,7 @@ function onSearch(e) {
 
     return;
   }
-  refs.notification.classList.add('visually-hidden');
+  // refs.notification.classList.add('visually-hidden');
    searchMovies.nullifyPage();
 
   onSearchMovies();
@@ -46,8 +46,9 @@ function onSearchMovies() {
       setTimeout(() => {
         refs.notification.classList.add('visually-hidden');
         refs.searchIconEl.classList.remove('visually-hidden');
+         window.location.reload(true);
       }, 2000);
-      window.location.reload(true); // reloadOnError();
+      // reloadOnError();
       return;
     }
     renderMovieCard(data);
