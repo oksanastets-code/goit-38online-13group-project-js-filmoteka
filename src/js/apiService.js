@@ -4,7 +4,7 @@ const BASE_URL =  'https://api.themoviedb.org/3';
 
 export default class moviesApiService {
   constructor() {
-    this.query = '';
+    this.query = 'zombie';
     this.page = 1;
 
   }
@@ -36,6 +36,21 @@ export default class moviesApiService {
          });
       });
   }
+  getMoviesByQuery() {
+    return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}`)
+      .then(r => r.json())
+      .then(({ results }) => {      
+        return this.getGenres()
+          .then(r => {
+            return results.map(film => ({
+              ...film,
+              genre_ids: this.getGenreName(r, film.genre_ids)
+            })
+            );
+         });
+      });
+}
+
 
   getGenres() {
     return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)

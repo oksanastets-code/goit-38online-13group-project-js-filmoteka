@@ -1,6 +1,10 @@
 import refs from './get-refs';
+import API from './apiService.js';
+import renderMovieCard from './render-movie-card';
 
 refs.libraryRef.addEventListener('click', onLibraryClick);
+
+const getMovies = new API();
 
 function onLibraryClick(e) {
   e.preventDefault();
