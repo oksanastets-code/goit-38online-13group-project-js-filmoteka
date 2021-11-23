@@ -83,10 +83,10 @@ export default class moviesApiService {
     this.page = 1;
   }
 
-  getQuery() {
+  get Query() {
     return this.query;
   }
-  setQuery(newQuery) {
+  set Query(newQuery) {
     this.query = newQuery;
   }
 }
