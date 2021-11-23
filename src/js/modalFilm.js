@@ -70,11 +70,13 @@ function renderModal(event) {
     console.log('my request:', idFilm);
 
     const getInfoFilm = new ApiService();
-    getInfoFilm.getMovieById(idFilm)
-        .then(renderFilmCard);        
-        
-} 
-// // console.log('my request:', r)
+
+    getInfoFilm.getMovieById(idFilm).then(renderFilmCard);
+
+}
+
+
+
 
 function renderFilmCard(film) {
     modalFilmCardEl.insertAdjacentHTML('beforeend', modalFilmTmp(film));
@@ -83,3 +85,6 @@ function renderFilmCard(film) {
 function clearFilmCard() {
     modalFilmCardEl.innerHTML = '';
 }
+// function getArrGenresName() {
+
+// }

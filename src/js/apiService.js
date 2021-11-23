@@ -27,7 +27,9 @@ export default class moviesApiService {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
       .then(r => r.json())
       .then(( results ) => {      
-        return results;});
+        return results;})
+
+  }
 
   // getMovieById(id) {
   //   return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
@@ -42,7 +44,7 @@ export default class moviesApiService {
   //           );
   //         });
   //     });
-  }
+  // }
 
   getGenres() {
     return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
