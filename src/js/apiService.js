@@ -4,7 +4,7 @@ const BASE_URL =  'https://api.themoviedb.org/3';
 
 export default class moviesApiService {
   constructor() {
-    this.query = 'zombie';
+    this.query = '';
     this.page = 1;
 
   }
