@@ -22,19 +22,28 @@ export default class moviesApiService {
          });
       });
   }
+
   getMovieById(id) {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
       .then(r => r.json())
-      .then(({ results }) => {      
-        return this.getGenres()
-          .then(r => {
-            return results.map(film => ({
-              ...film,
-              genre_ids: this.getGenreName(r, film.genre_ids)
-            })
-            );
-         });
-      });
+      .then(( results ) => {      
+        return results;});
+
+      
+
+  // getMovieById(id) {
+  //   return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
+  //     .then(r => r.json())
+  //     .then(({ results }) => {      
+  //       return this.getGenres()
+  //         .then(r => {
+  //           return results.map(film => ({
+  //             ...film,
+  //             genre_ids: this.getGenreName(r, film.genre_ids)
+  //           })
+  //           );
+  //         });
+  //     });
   }
 
   getGenres() {
