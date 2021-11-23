@@ -9,7 +9,7 @@
       </a>
 
       <nav class="header__navigation">
-        <a class="header__link js-home" href="">Home</a>
+        <a class="header__link is-active-page js-home" href="">Home</a>
         <a class="header__link js-library" href="">My library</a>
       </nav>
     </div>
@@ -21,7 +21,7 @@
                 <input class="header__input js-input-field" name="query" type="text" autocomplete="off"
                   placeholder="Search movies"/>
 
-        <svg width="12" height="12" class="header__input__icon">
+        <svg width="12" height="12" class="header__input__icon js-search-icon">
           <use href=./images/Icons/icons.svg#search></use>
         </svg>
         </form>
@@ -29,8 +29,8 @@
 
     </div>
 
-    <div class="header__notification">
-      <p class="header__notification--text">Search result not successful. Try another keyword.</p>
+    <div class="header__notification visually-hidden">
+      <p class="header__notification--text ">Search result not successful. Try another keyword.</p>
     </div>
 
     <div class="header__buttons js-header-buttons visually-hidden">
