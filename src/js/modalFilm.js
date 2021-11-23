@@ -70,7 +70,8 @@ function renderModal(event) {
     console.log('my request:', idFilm);
 
     const getInfoFilm = new ApiService();
-    getInfoFilm.getMovieById(idFilm).then(renderFilmCard);        
+    getInfoFilm.getMovieById(idFilm)
+        .then(renderFilmCard);        
         
 } 
 // // console.log('my request:', r)

@@ -29,8 +29,6 @@ export default class moviesApiService {
       .then(( results ) => {      
         return results;});
 
-      
-
   // getMovieById(id) {
   //   return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
   //     .then(r => r.json())
