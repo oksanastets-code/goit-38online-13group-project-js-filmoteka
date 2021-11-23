@@ -37,7 +37,7 @@ function clearCardsContainer() {
   refs.cardsContainerRef.innerHTML = '';
 }
 function onSearchMovies() {
-    searchMovies.getMoviesByQuery().then(data => {
+  searchMovies.getMoviesByQuery().then(data => {
     //   if nothing is found
     if (data.length === 0) {
       getMovies.getTrendingMovies().then(renderMovieCard);
@@ -46,9 +46,8 @@ function onSearchMovies() {
       setTimeout(() => {
         refs.notification.classList.add('visually-hidden');
         refs.searchIconEl.classList.remove('visually-hidden');
-         window.location.reload(true);
+        window.location.reload(true);
       }, 2000);
-      // reloadOnError();
       return;
     }
     renderMovieCard(data);
