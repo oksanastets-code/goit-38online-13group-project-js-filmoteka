@@ -5,10 +5,13 @@
   max-width: 528px;
   max-height: 100vh;
   padding: 30px 20px 30px 20px;
-  //   background-color: $primary-background-color;
   color: $secondary-text-color;
-  background-image: url('../images/bgTeamModal.jpg');
-  overflow-y: scroll;
+  // background-image: url('../images/bgTeamModal.jpg');
+  background-color: $primary-background-color;
+  @media screen and (max-width: 1023px) {
+    overflow-y: scroll;
+  }
+
   @media screen and (min-width: $tablet) and (max-width: 1023px) {
     margin: auto;
     width: 628px;
@@ -26,16 +29,16 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  margin-top: 20px;
+  // margin-top: 20px;
   @media screen and (min-width: $tablet) {
     margin-bottom: 30px;
-    margin-top: 30px;
+    // margin-top: 30px;
   }
 }
 
 .team__title {
   font-size: 20px;
-  color: $secondary-text-color;
+  color: $primary-text-color;
   &:hover {
     color: $accent-color;
   }
@@ -63,7 +66,7 @@
   margin-bottom: 20px;
   margin-right: auto;
   border-radius: 5px;
-  background-color: rgba($color: #01ff0e, $alpha: 0.5);
+  background-color: rgba($color: $accent-color, $alpha: 0.2);
 
   @media screen and (min-width: $desktop) {
     width: calc((100% - 5px * 4) / 5);
@@ -94,6 +97,7 @@
 .team__subtitle {
   font-weight: 400px;
   font-size: 14px;
+  color: $primary-text-color;
   @media screen and (min-width: $tablet) and (max-width: 1023px) {
     margin-bottom: 10px;
     font-size: 21px;
@@ -134,8 +138,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   padding: 0;
   margin: 0;
   border: none;
@@ -146,4 +150,12 @@
   background-image: url('../images/Icons/close.svg');
   background-position: center;
   background-repeat: no-repeat;
+  @media screen and (min-width: $tablet) and (max-width: 1023px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 40px;
+    height: 40px;
+  }
 }

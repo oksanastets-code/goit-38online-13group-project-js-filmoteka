@@ -20,6 +20,10 @@
     line-height: 16px;
     align-items: center;
     text-align: center;
+
+    .footer-students{
+      border-bottom: 1px solid $footer-text-color;
+    }
   }
   @media screen and (max-width: 410px){
     .footer-right{
