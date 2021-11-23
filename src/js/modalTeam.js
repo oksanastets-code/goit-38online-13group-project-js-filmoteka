@@ -7,8 +7,8 @@ import teamJson from '../JSON/Team.json';
 import * as basicLightbox from 'basiclightbox';
 // import 'basicLightbox/src/styles/main.scss';
 
-const modalContainer = document.querySelector('#js-team-modal'); // добавить потом с футера
-modalContainer.addEventListener('click', openModal);
+const modalTeamContainerRefs = document.querySelector('#js-team-modal'); // добавить потом с футера
+modalTeamContainerRefs.addEventListener('click', openModal);
 
 function openModal(e) {
   e.preventDefault();
@@ -40,13 +40,13 @@ function getTeamInfo(teamId) {
       window.removeEventListener('keydown', closeModalEsc);
     }
   }
-  const btnCloseRef = document.querySelector('.close__button');
+  const btnCloseModalTeamRef = document.querySelector('.close__button');
 
-  btnCloseRef.addEventListener('click', closeModalBtn);
+  btnCloseModalTeamRef.addEventListener('click', closeModalBtn);
 
   function closeModalBtn() {
     modalContent.close();
 
-    btnCloseRef.removeEventListener('click', closeModalBtn);
+    btnCloseModalTeamRef.removeEventListener('click', closeModalBtn);
   }
 }
