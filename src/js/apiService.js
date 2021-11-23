@@ -22,19 +22,13 @@ export default class moviesApiService {
          });
       });
   }
+
   getMovieById(id) {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
       .then(r => r.json())
-      .then(({ results }) => {      
-        return this.getGenres()
-          .then(r => {
-            return results.map(film => ({
-              ...film,
-              genre_ids: this.getGenreName(r, film.genre_ids)
-            })
-            );
-         });
-      });
+      .then(( results ) => {      
+        return results;})
+
   }
   getMoviesByQuery() {
     return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}`)
@@ -51,6 +45,21 @@ export default class moviesApiService {
       });
 }
 
+
+  // getMovieById(id) {
+  //   return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
+  //     .then(r => r.json())
+  //     .then(({ results }) => {      
+  //       return this.getGenres()
+  //         .then(r => {
+  //           return results.map(film => ({
+  //             ...film,
+  //             genre_ids: this.getGenreName(r, film.genre_ids)
+  //           })
+  //           );
+  //         });
+  //     });
+  // }
 
   getGenres() {
     return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
