@@ -14,7 +14,7 @@ openModalEl.addEventListener('click', onClick);
 
 function onClick (event) {
     event.preventDefault();
-    if(event.target.nodeName !== 'IMG') {
+    if(event.target.nodeName !== 'IMG' && event.target.nodeName !== 'P') {
         return;
     }
     openModal ();  
@@ -34,7 +34,9 @@ function closeModal (event) {
     if (event.target == this) {
     modalEl.classList.add('visually-hidden');
     bodyEl.classList.remove('overflow-hidden');
-    removeModalListener();}
+    clearFilmCard();
+    removeModalListener();
+    }
     // console.log('my request:', modalEl);
     
 }
@@ -56,24 +58,33 @@ function removeModalListener () {
 
 
 // // render modal with film
-// openModalEl.addEventListener('click', renderModal);
+
+
+let idFilm;
+
+openModalEl.addEventListener('click', renderModal);
+
+
+function renderModal(event) {
+    idFilm = event.target.dataset.id;
+    console.log('my request:', idFilm);
+
+    const getInfoFilm = new ApiService();
+
+    getInfoFilm.getMovieById(idFilm).then(renderFilmCard);
+
+}
 
 
 
 
-// // function renderModal(event) {
-// //     const idQ = event.target.dataset.id;
-// //     console.log('my request:', idQ);
+function renderFilmCard(film) {
+    modalFilmCardEl.insertAdjacentHTML('beforeend', modalFilmTmp(film));
+};
 
-// //     const getFilm = new ApiService();
-// //     getFilm.fetchImages()
-// //         .then((r.filter(x)) => {x.id === idQ}; )
-// //          renderFilmCard;
-// //            {
-        
-// // } 
-// // console.log('my request:', r)
+function clearFilmCard() {
+    modalFilmCardEl.innerHTML = '';
+}
+// function getArrGenresName() {
 
-// function renderFilmCard(film) {
-//     modalFilmCardEl.insertAdjacentHTML('beforeend', modalFilmTmp(film));
-// };
+// }

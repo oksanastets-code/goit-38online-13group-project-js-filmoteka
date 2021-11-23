@@ -15,9 +15,10 @@ function onHomeClick(e) {
   refs.headerBtnRef.classList.add('visually-hidden');
   refs.homeRef.classList.add('is-active-page');
   refs.libraryRef.classList.remove('is-active-page');
+  refs.notification.classList.add('visually-hidden');
 }
 
 
-
+export { getMovies };
 
 

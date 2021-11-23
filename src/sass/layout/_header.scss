@@ -72,7 +72,7 @@
 
   &__input__box {
     position: relative;
-    width: 220px;
+    width: 280px;
     height: 20px;
 
     @media screen and (min-width: $tablet) {
@@ -101,6 +101,18 @@
     right: 0px;
     transform: translate(0, -50%);
     stroke: $primary-background-color;
+  }
+  &__notification {
+    margin-top: 22px;
+  }
+  &__notification--text {
+    text-align: left;
+    color: $alert-text-color;
+    @include font-properties-cutted(14, 1.17);
+
+    @media screen and (min-width: $tablet) {
+      text-align: center;
+    }
   }
   &__buttons {
     display: flex;

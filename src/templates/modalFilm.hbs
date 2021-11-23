@@ -1,6 +1,6 @@
-{{!-- {{#each this}}
+{{!-- {{#each this}} --}}
 
-<img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="Poster {{title}}{{name}}" class="film__img">
+<img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="No poster for {{title}}{{name}}" class="film__img">
 <div class="film__info-container">
     <h2 class="film__title">{{title}}{{name}}</h2>
     <table class="film__feature">
@@ -18,7 +18,7 @@
         </tr>
         <tr class="film__feature-line">
             <td class="film__feature-option">Genre</td>
-            <td class="film__feature-details">{{genre_ids}}</td>
+            <td class="film__feature-details">{{genres}}</td>
         </tr>
     </table>
     <div class="film__about-container">
@@ -30,4 +30,4 @@
         <button type="button" class="btn">ADD TO QUEUE</button>    
     </div>
 </div>
-{{/each}} --}}
+{{!-- {{/each}} --}}
