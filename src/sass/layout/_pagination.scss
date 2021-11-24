@@ -27,7 +27,7 @@
     display: none;
   }
 }
-.buttons {
+.pagination-buttons {
   display: flex;
 }
 .pagination-arrow-button {
@@ -37,37 +37,29 @@
   border: none;
   border-radius: 5px;
 
-  //   fill: $primary-text-color;
-  //   color: ;
   background-color: $footer-background-color;
-  //   font-weight: 700;
-  //   @include font-properties(16, 1.875, 0.06);
 
   cursor: pointer;
 }
 .arrow {
   stroke: currentColor;
 }
-.pagination-page {
+.pagination-btn {
   width: 40px;
   height: 40px;
   padding: 12px;
-  border: none;
-  border-radius: 5px;
 
-  background-color: transparent;
+  // background-color: transparent;
 
   cursor: pointer;
 }
-.pagination-page-tablet {
+.pagination-btn-tablet {
   width: 32px;
 }
-.pagination-page-active {
+.pagination-btn-active {
   width: 40px;
   height: 40px;
   padding: 12px;
-  border: none;
-  border-radius: 5px;
 
   color: $secondary-text-color;
   background-color: $accent-text-color;
@@ -76,12 +68,12 @@
 
   cursor: pointer;
 }
-.pagination-number {
-  font-family: $main-font;
-  color: $primary-text-color;
-  font-weight: 500;
-  @include font-properties-cutted(12, 1.33);
-}
+// .pagination-number {
+//   font-family: $main-font;
+//   color: $primary-text-color;
+//   font-weight: 500;
+//   @include font-properties-cutted(12, 1.33);
+// }
 .pagination-number-active {
   color: $secondary-text-color;
   font-weight: 500;
