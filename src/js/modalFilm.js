@@ -1,15 +1,13 @@
 
+import refs from './get-refs.js';
 import modalFilmTmp from '../templates/modalFilm.hbs';
 import ApiService from '../js/apiService.js';
 
-const openModalEl = document.querySelector('.card__container');
-const closeModalEl = document.querySelector('.js-close-modal');
-const modalEl = document.querySelector('.js-modal');
-const bodyEl = document.querySelector('body');
-const modalFilmCardEl = document.querySelector('.js-film');
+
+
 
 // open/close modal
-openModalEl.addEventListener('click', onClick);
+refs.openModalEl.addEventListener('click', onClick);
 
 
 function onClick (event) {
@@ -21,19 +19,19 @@ function onClick (event) {
 }
   
 function openModal () {
-    modalEl.classList.remove('visually-hidden');
-    if (!modalEl.classList.contains('visually-hidden')) {
-        bodyEl.classList.add('overflow-hidden');
+    refs.modalEl.classList.remove('visually-hidden');
+    if (!refs.modalEl.classList.contains('visually-hidden')) {
+        refs.bodyEl.classList.add('overflow-hidden');
     } 
-    closeModalEl.addEventListener('click', closeModal);
-    modalEl.addEventListener('click', closeModal);
+    refs.closeModalEl.addEventListener('click', closeModal);
+    refs.modalEl.addEventListener('click', closeModal);
     window.addEventListener('keydown', closeModalByEsc);
 }
 
 function closeModal (event) {
     if (event.target == this) {
-    modalEl.classList.add('visually-hidden');
-    bodyEl.classList.remove('overflow-hidden');
+        refs.modalEl.classList.add('visually-hidden');
+        refs.bodyEl.classList.remove('overflow-hidden');
     clearFilmCard();
     removeModalListener();
     }
@@ -43,15 +41,15 @@ function closeModal (event) {
   
 function closeModalByEsc (event) {
     if (event.code === 'Escape') {
-        modalEl.classList.add('visually-hidden');
-        bodyEl.classList.remove('overflow-hidden');
+        refs.modalEl.classList.add('visually-hidden');
+        refs.bodyEl.classList.remove('overflow-hidden');
         removeModalListener();
     }
 };
     
 function removeModalListener () {
-    closeModalEl.removeEventListener('click', closeModal);
-    modalEl.removeEventListener('click', closeModal);
+    refs.closeModalEl.removeEventListener('click', closeModal);
+    refs.modalEl.removeEventListener('click', closeModal);
     window.removeEventListener('keydown', closeModalByEsc);
   
 };
@@ -62,7 +60,7 @@ function removeModalListener () {
 
 let idFilm;
 
-openModalEl.addEventListener('click', renderModal);
+refs.openModalEl.addEventListener('click', renderModal);
 
 
 function renderModal(event) {
@@ -79,12 +77,9 @@ function renderModal(event) {
 
 
 function renderFilmCard(film) {
-    modalFilmCardEl.insertAdjacentHTML('beforeend', modalFilmTmp(film));
+    refs.modalFilmCardEl.insertAdjacentHTML('beforeend', modalFilmTmp(film));
 };
 
 function clearFilmCard() {
-    modalFilmCardEl.innerHTML = '';
+    refs.modalFilmCardEl.innerHTML = '';
 }
-// function getArrGenresName() {
-
-// }

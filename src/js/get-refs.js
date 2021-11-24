@@ -11,4 +11,12 @@ export default {
   searchForm: document.querySelector('#search-form'),
   notification: document.querySelector('.header__notification'),
   searchIconEl: document.querySelector('.js-search-icon'),
+
+  // modal
+  openModalEl: document.querySelector('.card__container'),
+  closeModalEl: document.querySelector('.js-close-modal'),
+  modalEl: document.querySelector('.js-modal'),
+  bodyEl: document.querySelector('body'),
+  modalFilmCardEl: document.querySelector('.js-film'),
+
 }

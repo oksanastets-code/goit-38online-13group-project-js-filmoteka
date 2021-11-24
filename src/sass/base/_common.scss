@@ -1,7 +1,14 @@
+html,
+body{
+  height: 100%;
+}
+
 body {
   font-family: $main-font;
   font-style: normal;
   color: $primary-text-color;
+  display: flex;
+  flex-direction: column;
   //   width: 100%;
   //   max-width: 100%;
   //   overflow-x: hidden;
@@ -14,3 +21,7 @@ button {
   font-family: inherit;
 }
 // import 'basicLightbox/src/styles/main.scss';
+
+main{
+  flex: 1 0 auto;
+}
