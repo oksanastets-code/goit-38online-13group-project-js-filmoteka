@@ -62,6 +62,10 @@ export default class moviesApiService {
       genres.find(genre => {
         if (number === genre.id) {
           genreNames.push(genre.name);
+          if (genreNames.length > 3) {
+            genreNames.splice(2, 2, 'other');
+            return;
+          }
         }
       });
     });
