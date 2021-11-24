@@ -10,7 +10,7 @@ refs.searchForm.addEventListener('submit', onSearch);
 
 function onSearch(e) {
   e.preventDefault();
-  console.log('submit');
+  // console.log('submit');
   clearCardsContainer();
   searchMovies.Query = e.currentTarget.elements.query.value;
   console.log(e.currentTarget.elements.query.value);
