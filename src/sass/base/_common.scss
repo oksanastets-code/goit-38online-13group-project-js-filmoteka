@@ -1,5 +1,5 @@
 html,
-body{
+body {
   height: 100%;
 }
 
@@ -9,9 +9,9 @@ body {
   color: $primary-text-color;
   display: flex;
   flex-direction: column;
-  //   width: 100%;
-  //   max-width: 100%;
-  //   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 a {
   font-family: inherit;
@@ -22,6 +22,6 @@ button {
 }
 // import 'basicLightbox/src/styles/main.scss';
 
-main{
+main {
   flex: 1 0 auto;
 }
