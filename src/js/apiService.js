@@ -63,7 +63,7 @@ export default class moviesApiService {
         if (number === genre.id) {
           genreNames.push(genre.name);
           if (genreNames.length > 3) {
-            genreNames.splice(2, 2, 'other');
+            genreNames.splice(2, 2, 'Other');
             return;
           }
         }
