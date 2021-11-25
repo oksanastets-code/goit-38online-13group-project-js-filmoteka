@@ -1,24 +1,24 @@
 {{!-- {{#each this}} --}}
 
 <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="No poster for {{title}}{{name}}" class="film__img">
-<div class="film__info-container">
+<div class="film__info-container modal"  data-action='{{id}}'>
     <h2 class="film__title">{{title}}{{name}}</h2>
     <table class="film__feature">
         <tr class="film__feature-line">
             <td class="film__feature-option">Vote / Votes</td>
-            <td class="film__feature-details"><span class="vote">{{this.vote_average}}</span> / {{this.vote_count}}</td>
+            <td class="film__feature-details "><span class="vote">{{this.vote_average}}</span> / {{this.vote_count}}</td>
         </tr>
         <tr class="film__feature-line">
             <td class="film__feature-option">Popularity</td>
-            <td class="film__feature-details">{{this.popularity}}</td>
+            <td class="film__feature-details card__item-count">{{this.popularity}}</td>
         </tr>
         <tr class="film__feature-line">
             <td class="film__feature-option">Original Title</td>
-            <td class="film__feature-details">{{original_title}}{{original_name}}</td>
+            <td class="film__feature-details card__item-original-title">{{original_title}}{{original_name}}</td>
         </tr>
         <tr class="film__feature-line">
             <td class="film__feature-option">Genre</td>
-            <td class="film__feature-details">{{genres}}</td>
+            <td class="film__feature-details card__item-genres">{{genres}}</td>
         </tr>
     </table>
     <div class="film__about-container">
