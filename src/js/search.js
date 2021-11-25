@@ -18,10 +18,12 @@ function onSearch(e) {
   // Verification on empty request
   if (!searchMovies.query.trim()) {
     getMovies.getTrendingMovies().then(renderMovieCard);
-    refs.notification.classList.remove('visually-hidden');
+    // refs.notification.classList.remove('visually-hidden');
+    refs.notificationText.style.opacity = '1';
     refs.searchIconEl.classList.add('visually-hidden');
     setTimeout(() => {
-      refs.notification.classList.add('visually-hidden');
+      // refs.notification.classList.add('visually-hidden');
+      refs.notificationText.style.opacity = '0';
       refs.searchIconEl.classList.remove('visually-hidden');
       window.location.reload(true);
     }, 2000);
@@ -42,10 +44,12 @@ function onSearchMovies() {
     //   if nothing is found
     if (data.length === 0) {
       getMovies.getTrendingMovies().then(renderMovieCard);
-      refs.notification.classList.remove('visually-hidden');
+      // refs.notification.classList.remove('visually-hidden');
+       refs.notificationText.style.opacity = '1';
       refs.searchIconEl.classList.add('visually-hidden');
       setTimeout(() => {
-        refs.notification.classList.add('visually-hidden');
+        // refs.notification.classList.add('visually-hidden');
+         refs.notificationText.style.opacity = '0';
         refs.searchIconEl.classList.remove('visually-hidden');
         window.location.reload(true);
       }, 2000);

@@ -10,6 +10,7 @@ export default {
   headerInputField: document.querySelector('.js-input-field'),
   searchForm: document.querySelector('#search-form'),
   notification: document.querySelector('.header__notification'),
+  notificationText: document.querySelector('.header__notification--text'),
   searchIconEl: document.querySelector('.js-search-icon'),
 
   // modal
