@@ -16,8 +16,8 @@ export default class moviesApiService {
           return this.getGenres().then(r => {
             return results.map(film => ({
               ...film,
-              release_date: film.release_date ? film.release_date.split('-')[0] : '',
-              first_air_date: film.first_air_date ? film.first_air_date.split('-')[0] : '',
+              release_date: film.release_date ? film.release_date.slice(0, 4) : '',
+              first_air_date: film.first_air_date ? film.first_air_date.slice(0, 4) : '',
               genre_ids: this.getGenreName(r, film.genre_ids),
             }));
           });
@@ -55,8 +55,8 @@ export default class moviesApiService {
         return this.getGenres().then(r => {
           return results.map(film => ({
             ...film,
-            release_date: film.release_date ? film.release_date.split('-')[0] : '',
-            first_air_date: film.first_air_date ? film.first_air_date.split('-')[0] : '',
+            release_date: film.release_date ? film.release_date.slice(0, 4) : '',
+            first_air_date: film.first_air_date ? film.first_air_date.slice(0, 4) : '',
             genre_ids: this.getGenreName(r, film.genre_ids),
           }));
         });
