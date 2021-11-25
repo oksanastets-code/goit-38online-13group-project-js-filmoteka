@@ -16,28 +16,17 @@ export default class moviesApiService {
           return this.getGenres().then(r => {
             return results.map(film => ({
               ...film,
-              release_date: film.release_date ? film.release_date.slice(0, 4) : '',
-              first_air_date: film.first_air_date ? film.first_air_date.slice(0, 4) : '',
+              // title: (film.title.length > 35) ? film.title.slice(0, 35) : film.title,
+              title: film.title ? this.getCuttedName(film.title) : '',
+              name: film.name ? this.getCuttedName(film.name) : '',
+              release_date: film.release_date ? this.getCuttedDate(film.release_date) : '',
+              first_air_date: film.first_air_date ? this.getCuttedDate(film.first_air_date) : '',
               genre_ids: this.getGenreName(r, film.genre_ids),
             }));
           });
         })
     );
   }
-  // getTrendingMovies() {
-  //   return fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}`)
-  //     .then(r => r.json())
-  //     .then(({ results }) => {
-  //       return this.getGenres()
-  //         .then(r => {
-  //           return results.map(film => ({
-  //             ...film,
-  //             genre_ids: this.getGenreName(r, film.genre_ids)
-  //           })
-  //           );
-  //        });
-  //     });
-  // }
 
   getMovieById(id) {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
@@ -55,6 +44,8 @@ export default class moviesApiService {
         return this.getGenres().then(r => {
           return results.map(film => ({
             ...film,
+            title: film.title ? this.getCuttedName(film.title) : '',
+            name: film.name ? this.getCuttedName(film.name) : '',
             release_date: film.release_date ? film.release_date.slice(0, 4) : '',
             first_air_date: film.first_air_date ? film.first_air_date.slice(0, 4) : '',
             genre_ids: this.getGenreName(r, film.genre_ids),
@@ -71,12 +62,19 @@ export default class moviesApiService {
       });
   }
 
-  // getCuttedDate(string) {
-  //   let cuttedDate = string;
-  //   // console.log(typeof cuttedDate);
-  //   // return cuttedDate;
-  //   console.log(string);
-  // }
+  getCuttedDate(string) {
+    let cuttedDate;
+    cuttedDate = string.slice(0, 4);
+    return cuttedDate;
+    // console.log(string);
+  }
+  getCuttedName(string) {
+    let cuttedName;
+    // console.log(string.length);
+    cuttedName = string.length <= 35 ? string : string.slice(0, 35) + '...';
+    return cuttedName;
+    // console.log(string);
+  }
 
   getGenreName(genres, numbers) {
     const genreNames = [];
