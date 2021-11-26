@@ -1,13 +1,19 @@
 [
   {
+    "name": "Roman",
+    "position": "Tech Lead",
+    "imageMember": "https://avatars.githubusercontent.com/u/82829794?v=4",
+    "githubLink": "https://github.com/muzzlegit"
+  },
+  {
     "name": "Oksana",
-    "position": "Teamlead",
+    "position": "Team Lead",
     "imageMember": "https://avatars.githubusercontent.com/u/82946234?v=4",
     "githubLink": "https://github.com/oksanastets-code"
   },
   {
     "name": "Maryana",
-    "position": "Scrum master",
+    "position": "Scrum Master",
     "imageMember": "https://avatars.githubusercontent.com/u/81640002?v=4",
     "githubLink": "https://github.com/MaryanaDey"
   },
@@ -28,12 +34,6 @@
     "position": "Developer",
     "imageMember": "https://avatars.githubusercontent.com/u/82961835?v=4",
     "githubLink": "https://github.com/KostiantynKaluhin"
-  },
-  {
-    "name": "Roman",
-    "position": "Developer",
-    "imageMember": "https://avatars.githubusercontent.com/u/82829794?v=4",
-    "githubLink": "https://github.com/muzzlegit"
   },
   {
     "name": "Maria",
