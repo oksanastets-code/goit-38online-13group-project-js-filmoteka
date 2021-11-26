@@ -1,8 +1,8 @@
 
 import refs from './get-refs.js';
-import modalFilmTmp from '../templates/modalFilm.hbs';
-import ApiService from '../js/apiService.js';
-import { upBtn } from '../js/up-btn.js';
+import modalFilmTmp from '../templates/modal-film.hbs';
+import ApiService from './apiService.js';
+import { upBtn } from './up-btn.js';
 
 
 
