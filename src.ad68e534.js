@@ -42,4 +42,4 @@ module.exports=[{name:"Roman",position:"Tech Lead",imageMember:"https://avatars.
 },{"../templates/modalTeam.hbs":"wmJt","../JSON/Team.json":"J61u","basiclightbox":"BNjD"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/page-Home.js"),require("./js/modal-film.js"),require("./js/page-Library.js"),require("./js/search.js"),require("./js/up-btn.js"),require("./js/modalTeam.js"),require("./js/spinner");
 },{"./sass/main.scss":"clu1","./js/page-Home.js":"h17d","./js/modal-film.js":"voJm","./js/page-Library.js":"YDZQ","./js/search.js":"HU2o","./js/up-btn.js":"e4yY","./js/modalTeam.js":"fDFk","./js/spinner":"Sc1o"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-38online-13group-project-js-filmoteka/src.5ff593dd.js.map
+//# sourceMappingURL=/goit-38online-13group-project-js-filmoteka/src.ad68e534.js.map
