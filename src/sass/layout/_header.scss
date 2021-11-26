@@ -48,15 +48,15 @@
   }
 
   &__link {
+    display: inline-block;
     font-weight: 500;
     @include font-properties-cutted(12, 1.167);
     text-transform: uppercase;
     color: $secondary-text-color;
+    @include transition(transform);
 
-    transition-property: transform;
-    transition-duration: 300ms;
-    transition-timing-function: ease;
   }
+  
   &__link:not(:last-child) {
     margin-right: 39px;
   }
@@ -64,10 +64,8 @@
   &__link:focus,
   &__link:hover {
     color: $accent-text-color;
-
-    transition-duration: 300ms;
-    transition-timing-function: ease;
     transform: scale(1.05);
+    
   }
 
   &__query {

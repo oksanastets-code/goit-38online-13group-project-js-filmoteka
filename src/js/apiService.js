@@ -34,6 +34,7 @@ export default class moviesApiService {
       .then(({ ...results }) => {
         results.genres = results.genres.map(genre => genre.name);
         return results;
+  
       });
   }
 

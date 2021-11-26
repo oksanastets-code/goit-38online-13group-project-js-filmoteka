@@ -16,6 +16,7 @@ function onClick (event) {
         return;
     }
     openModal ();  
+    
 }
   
 function openModal () {
@@ -27,6 +28,7 @@ function openModal () {
     refs.modalEl.addEventListener('click', closeModal);
     window.addEventListener('keydown', closeModalByEsc);
     upBtn.classList.add('visually-hidden');
+    
     
 }
 
@@ -76,6 +78,7 @@ function renderModal(event) {
     const getInfoFilm = new ApiService();
 
     getInfoFilm.getMovieById(idFilm).then(renderFilmCard);
+    
 
 }
 
