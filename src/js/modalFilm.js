@@ -2,7 +2,7 @@
 import refs from './get-refs.js';
 import modalFilmTmp from '../templates/modalFilm.hbs';
 import ApiService from '../js/apiService.js';
-
+import { upBtn } from '../js/up-btn.js';
 
 
 
@@ -26,12 +26,15 @@ function openModal () {
     refs.closeModalEl.addEventListener('click', closeModal);
     refs.modalEl.addEventListener('click', closeModal);
     window.addEventListener('keydown', closeModalByEsc);
+    upBtn.classList.add('visually-hidden');
+    
 }
 
 function closeModal (event) {
     if (event.target == this) {
         refs.modalEl.classList.add('visually-hidden');
         refs.bodyEl.classList.remove('overflow-hidden');
+        upBtn.classList.remove('visually-hidden');
     clearFilmCard();
     removeModalListener();
     }
@@ -43,6 +46,8 @@ function closeModalByEsc (event) {
     if (event.code === 'Escape') {
         refs.modalEl.classList.add('visually-hidden');
         refs.bodyEl.classList.remove('overflow-hidden');
+        
+       
         removeModalListener();
     }
 };
@@ -53,6 +58,7 @@ function removeModalListener () {
     window.removeEventListener('keydown', closeModalByEsc);
   
 };
+
 
 
 // // render modal with film
