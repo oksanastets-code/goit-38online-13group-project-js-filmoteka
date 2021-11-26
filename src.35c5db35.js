@@ -42,4 +42,4 @@ var e,n=arguments[3];!function(t){"object"==typeof exports&&"undefined"!=typeof 
 },{"basiclightbox":"BNjD"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/page-Home.js"),require("./js/modal-film.js"),require("./js/page-Library.js"),require("./js/search.js"),require("./js/up-btn.js"),require("./js/modalTeam.js"),require("./js/spinner");
 },{"./sass/main.scss":"clu1","./js/page-Home.js":"h17d","./js/modal-film.js":"voJm","./js/page-Library.js":"YDZQ","./js/search.js":"HU2o","./js/up-btn.js":"e4yY","./js/modalTeam.js":"fDFk","./js/spinner":"Sc1o"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-38online-13group-project-js-filmoteka/src.c4b3fb30.js.map
+//# sourceMappingURL=/goit-38online-13group-project-js-filmoteka/src.35c5db35.js.map
