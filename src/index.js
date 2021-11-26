@@ -1,6 +1,6 @@
 import './sass/main.scss';
 import './js/page-Home.js';
-import './js/modalFilm.js';
+import './js/modal-film.js';
 import './js/page-Library.js';
 // import './js/localStorage.js';
 import './js/search.js';

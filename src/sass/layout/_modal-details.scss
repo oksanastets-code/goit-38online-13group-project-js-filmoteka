@@ -77,6 +77,8 @@
   &__feature {
     margin-bottom: 20px;
     width: 240px;
+    border-collapse: separate;
+    border-spacing: 10px;
   }
 
   &__feature-line:not(:last-child) {
@@ -133,7 +135,9 @@
   }
 
   &__feature-option {
+    width: 50%;
     color: $card-text-color;
+
   }
 
   &__feature-details {
