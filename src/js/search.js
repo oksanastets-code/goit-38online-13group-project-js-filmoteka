@@ -13,7 +13,6 @@ function onSearch(e) {
   e.preventDefault();
   
   // console.log('submit');
-  clearCardsContainer();
   searchMovies.Query = e.currentTarget.elements.query.value;
   console.log(e.currentTarget.elements.query.value);
   
