@@ -4,13 +4,14 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 
 import { getFromLocalStorage } from './localStorageLang';
 
+let langs = getFromLocalStorage('lang');
+
 export default class moviesApiService {
   constructor() {
     this.query = '';
     this.page = 1;
   }
   getTrendingMovies() {
-    let langs = getFromLocalStorage('lang');
     return (
       fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}`)
         .then(r => r.json())
@@ -32,7 +33,7 @@ export default class moviesApiService {
   }
 
   getMovieById(id) {
-    return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
+    return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${langs}`)
       .then(r => r.json())
       .then(({ ...results }) => {
         results.genres = results.genres.map(genre => genre.name);
@@ -41,7 +42,9 @@ export default class moviesApiService {
   }
 
   getMoviesByQuery() {
-    return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}`)
+    return fetch(
+      `${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}&language=${langs}`,
+    )
       .then(r => r.json())
       .then(({ results }) => {
         return this.getGenres().then(r => {
@@ -58,7 +61,7 @@ export default class moviesApiService {
   }
 
   getGenres() {
-    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
+    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=${langs}`)
       .then(r => r.json())
       .then(({ genres }) => {
         return genres;
