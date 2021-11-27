@@ -1,12 +1,12 @@
 import refs from './get-refs';
 import API from './apiService.js';
-import renderMovieCard from './render-movie-card';
+import {renderMovieCard} from './render-movie-card';
 
 refs.homeRef.addEventListener('click', onHomeClick);
 
 const getMovies = new API();
-
 getMovies.getTrendingMovies().then(renderMovieCard);
+
 
 function onHomeClick(e) {
   e.preventDefault();
@@ -15,10 +15,10 @@ function onHomeClick(e) {
   refs.headerBtnRef.classList.add('visually-hidden');
   refs.homeRef.classList.add('is-active-page');
   refs.libraryRef.classList.remove('is-active-page');
+  getMovies.getTrendingMovies().then(renderMovieCard);
   // refs.notification.classList.add('visually-hidden');
 }
 
 
-export { getMovies };
 
 
