@@ -1,7 +1,8 @@
 import ApiService from '../js/apiService.js';
 import refs from '../js/get-refs.js';
-import renderMovieCard from './render-movie-card';
+import {renderMovieCard} from './render-movie-card';
 import { getMovies } from './page-Home.js';
+// import loader from './spinner.js';
 
 // new examplar
 const searchMovies = new ApiService();
@@ -10,6 +11,7 @@ refs.searchForm.addEventListener('submit', onSearch);
 
 function onSearch(e) {
   e.preventDefault();
+  
   // console.log('submit');
   clearCardsContainer();
   searchMovies.Query = e.currentTarget.elements.query.value;
