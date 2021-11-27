@@ -8,3 +8,4 @@ import './js/up-btn.js';
 import './js/modalTeam.js';
 import './js/spinner';
 import './js/add-to-libraries';
+import './js/pagination.js';
