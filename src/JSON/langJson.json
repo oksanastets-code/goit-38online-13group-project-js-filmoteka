@@ -56,15 +56,5 @@
     "uk": "Студентами GoIT",
     "ru": "Студентами GoIT",
     "en": "GoIT Students"
-  },
-  "addWatched": {
-    "uk": "Переглянуто",
-    "ru": "Просмотренные",
-    "en": "ADD TO WATCHED"
-  },
-  "addQueue": {
-    "uk": "В чергу",
-    "ru": "В очередь",
-    "en": "ADD TO QUEUE"
   }
 }
