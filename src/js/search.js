@@ -1,6 +1,6 @@
 import ApiService from '../js/apiService.js';
 import refs from '../js/get-refs.js';
-import renderMovieCard from './render-movie-card';
+import {renderMovieCard} from './render-movie-card';
 import { getMovies } from './page-Home.js';
 // import loader from './spinner.js';
 
