@@ -58,10 +58,10 @@
   &__link:not(:last-child) {
     margin-right: 39px;
   }
-  &__link:focus,
-  &__link:hover {
-    color: $accent-text-color;
-  }
+  // &__link:focus,
+  // &__link:hover {
+  //   color: $accent-text-color;
+  // }
 
   &__query {
     display: block;

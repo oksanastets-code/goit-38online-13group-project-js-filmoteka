@@ -68,6 +68,7 @@ export default class moviesApiService {
     return cuttedDate;
     // console.log(string);
   }
+
   getCuttedName(string) {
     let cuttedName;
     // console.log(string.length);

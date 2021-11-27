@@ -5,6 +5,9 @@ export default {
   headerInputRef: document.querySelector('.js-header-input'),
   headerBtnRef: document.querySelector('.js-header-buttons'),
   cardsContainerRef: document.querySelector('.js-card-container'),
+  libraryQueueBtn: document.querySelector('.js-library-queue-btn'),
+  libraryWatchedBtn: document.querySelector('.js-library-watched-btn'),
+
 
   // search
   headerInputField: document.querySelector('.js-input-field'),
@@ -19,5 +22,5 @@ export default {
   modalEl: document.querySelector('.js-modal'),
   bodyEl: document.querySelector('body'),
   modalFilmCardEl: document.querySelector('.js-film'),
-
+  
 }

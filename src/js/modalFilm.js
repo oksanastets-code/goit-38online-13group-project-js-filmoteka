@@ -5,9 +5,9 @@ import ApiService from '../js/apiService.js';
 
 
 
-
 // open/close modal
 refs.openModalEl.addEventListener('click', onClick);
+
 
 
 function onClick (event) {
@@ -15,7 +15,8 @@ function onClick (event) {
     if(event.target.nodeName !== 'IMG' && event.target.nodeName !== 'P') {
         return;
     }
-    openModal ();  
+  openModal();
+
 }
   
 function openModal () {
@@ -25,15 +26,16 @@ function openModal () {
     } 
     refs.closeModalEl.addEventListener('click', closeModal);
     refs.modalEl.addEventListener('click', closeModal);
-    window.addEventListener('keydown', closeModalByEsc);
+  window.addEventListener('keydown', closeModalByEsc);
+
 }
 
 function closeModal (event) {
     if (event.target == this) {
         refs.modalEl.classList.add('visually-hidden');
         refs.bodyEl.classList.remove('overflow-hidden');
-    clearFilmCard();
-    removeModalListener();
+        clearFilmCard();
+        removeModalListener();
     }
     // console.log('my request:', modalEl);
     
@@ -69,17 +71,47 @@ function renderModal(event) {
 
     const getInfoFilm = new ApiService();
 
-    getInfoFilm.getMovieById(idFilm).then(renderFilmCard);
+  getInfoFilm.getMovieById(idFilm).then(r => {
+      renderFilmCard(r);
+      let watchedBtnEl = document.querySelector('button[data-name="watched"]');
+      let queueBtnEl = document.querySelector('button[data-name="queue"]');
+      checkQueueBtn(queueBtnEl, idFilm);
+      checkWatchedBtn(watchedBtnEl, idFilm);
+      refs.modalEl.setAttribute('id', idFilm);
+    }
+  );
+
 
 }
 
 
 
-
 function renderFilmCard(film) {
-    refs.modalFilmCardEl.insertAdjacentHTML('beforeend', modalFilmTmp(film));
+    refs.modalFilmCardEl.insertAdjacentHTML('afterbegin', modalFilmTmp(film));
 };
 
 function clearFilmCard() {
     refs.modalFilmCardEl.innerHTML = '';
+}
+
+
+// check buttons
+
+function checkQueueBtn(btn, id) {
+  if (!(localStorage.getItem('queueList'))) return;
+  let  queueList = JSON.parse(localStorage.getItem('queueList'));
+  if (queueList.includes(id)) {
+    btn.textContent = 'remove from queue';
+  } else {
+    btn.textContent = 'add to queue';
+  }
+}
+function checkWatchedBtn(btn, id) {
+  if (!(localStorage.getItem('watchedList'))) return;
+  let  queueList = JSON.parse(localStorage.getItem('watchedList'));
+  if (queueList.includes(id)) {
+    btn.textContent = 'remove from watched';
+  } else {
+    btn.textContent = 'add to watched';
+  }
 }
