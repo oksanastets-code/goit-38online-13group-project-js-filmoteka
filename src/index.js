@@ -9,3 +9,4 @@ import './js/modalTeam.js';
 import './js/spinner';
 import './js/add-to-libraries';
 import './js/pagination.js';
+import './js/localization';
