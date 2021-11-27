@@ -7,3 +7,4 @@ import './js/search.js';
 import './js/up-btn.js';
 import './js/modalTeam.js';
 import './js/spinner';
+import './js/localization';

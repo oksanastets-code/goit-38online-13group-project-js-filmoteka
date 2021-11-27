@@ -2,14 +2,17 @@ const API_KEY = 'bffba07cef2d165abd193feceb46d279';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+import { getFromLocalStorage } from './localStorageLang';
+
 export default class moviesApiService {
   constructor() {
     this.query = '';
     this.page = 1;
   }
   getTrendingMovies() {
+    let langs = getFromLocalStorage('lang');
     return (
-      fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}`)
+      fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}`)
         .then(r => r.json())
         //  .then(console.log)
         .then(({ results }) => {
