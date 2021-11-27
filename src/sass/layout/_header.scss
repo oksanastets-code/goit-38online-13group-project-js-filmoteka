@@ -1,26 +1,30 @@
 .header {
   max-width: $mobile;
+  height: auto;
   margin-right: auto;
   margin-left: auto;
   padding-top: 46px;
   padding-bottom: 43px;
 
-  background-image: linear-gradient($header-overlay-color, $header-overlay-color),
-    url(../images/Mobile/header_home_mobile_1x.jpg);
-
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media screen and (max-width: $mobile) {
     background-image: linear-gradient($header-overlay-color, $header-overlay-color),
-      url(../images/Mobile/header_home_mobile_2x.jpg);
-  }
-  background-size: cover;
-  background-position: center;
+      url(../images/Mobile/header_home_mobile_1x.jpg);
+    background-size: cover;
+    background-position: center;
 
-  @media screen and (min-width: $tablet) {
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient($header-overlay-color, $header-overlay-color),
+        url(../images/Mobile/header_home_mobile_2x.jpg);
+    }
+  }
+
+  @media screen and (min-width: $mobile + 1) {
     max-width: $tablet;
     padding-top: 41px;
     padding-bottom: 59px;
     background-image: linear-gradient($header-overlay-color, $header-overlay-color),
       url(../images/Tablet/header_home_tablet_1x.jpg);
+
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: linear-gradient($header-overlay-color, $header-overlay-color),
         url(../images/Tablet/header_home_tablet_2x.jpg);
@@ -31,7 +35,10 @@
 
     background-image: linear-gradient($header-overlay-color, $header-overlay-color),
       url(../images/Desktop/header_home_desktop_1x.jpg);
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
       background-image: linear-gradient($header-overlay-color, $header-overlay-color),
         url(../images/Desktop/header_home_desktop_2x.jpg);
     }
@@ -49,19 +56,26 @@
 
   &__link {
     font-weight: 500;
-    font-size: 12px;
-    line-height: 1.167;
+    @include font-properties-cutted(12, 1.167);
     text-transform: uppercase;
-
     color: $secondary-text-color;
+
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
   }
   &__link:not(:last-child) {
     margin-right: 39px;
   }
-  // &__link:focus,
-  // &__link:hover {
-  //   color: $accent-text-color;
-  // }
+
+  &__link:focus,
+  &__link:hover {
+    // color: $accent-text-color;
+
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+    transform: scale(1.05);
+  }
 
   &__query {
     display: block;
@@ -121,22 +135,24 @@
 }
 .header.library {
   max-width: $mobile;
+  height: auto;
   margin-right: auto;
   margin-left: auto;
   padding-top: 46px;
   padding-bottom: 65px;
 
-  background-image: linear-gradient($header-overlay-color, $header-overlay-color),
-    url(../images/Mobile/header_library_mobile_1x.jpg);
-
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media screen and (max-width: $mobile) {
     background-image: linear-gradient($header-overlay-color, $header-overlay-color),
-      url(../images/Mobile/header_library_mobile_2x.jpg);
+      url(../images/Mobile/header_library_mobile_1x.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient($header-overlay-color, $header-overlay-color),
+        url(../images/Mobile/header_library_mobile_2x.jpg);
+    }
   }
-  background-repeat: no-repeat;
-  background-position: center;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $mobile + 1) {
     max-width: $tablet;
     padding-top: 41px;
     background-image: linear-gradient($header-overlay-color, $header-overlay-color),

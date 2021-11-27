@@ -1,0 +1,20 @@
+.control__languages {
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 28px);
+  display: flex;
+  @media screen and (min-width: $tablet) {
+    left: calc(50% - 40px);
+  }
+}
+
+.control__languages-icon {
+  //   border: 1px #4ed155 solid;
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  @media screen and (min-width: $tablet) {
+    width: 20px;
+    height: 20px;
+  }
+}

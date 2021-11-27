@@ -18,7 +18,6 @@ function onLibraryClick(e) {
   refs.homeRef.classList.remove('is-active-page');
   refs.libraryRef.classList.add('is-active-page');
  
-
   onQueueBtnClick();
 
 }

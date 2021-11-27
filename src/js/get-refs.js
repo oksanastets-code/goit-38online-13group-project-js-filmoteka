@@ -22,5 +22,5 @@ export default {
   modalEl: document.querySelector('.js-modal'),
   bodyEl: document.querySelector('body'),
   modalFilmCardEl: document.querySelector('.js-film'),
-  
+
 }
