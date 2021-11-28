@@ -25,8 +25,18 @@
       @include font-properties-cutted(16, 1.17);
     }
     &--students {
-      border-bottom: 1px solid $footer-text-color;
+      display: inline-block;
+      border-bottom: 1px solid $accent-text-color;
+      @include transition (transform);
     }
+
+    &--students:hover {
+      color: $accent-text-color;
+      transform: scale(1.05);
+
+    }
+
+    
     &--before {
       margin-bottom: 10px;
       @media screen and (min-width: $tablet) {
