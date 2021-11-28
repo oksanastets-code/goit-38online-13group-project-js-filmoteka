@@ -19,7 +19,6 @@ function onLibraryClick(e) {
   refs.libraryRef.classList.add('is-active-page');
  
   onQueueBtnClick();
-
 }
 
 function onQueueBtnClick() {
@@ -27,7 +26,7 @@ function onQueueBtnClick() {
   refs.libraryWatchedBtn.classList.remove('is-active-btn');
   refs.cardsContainerRef.innerHTML = '';
   getQueueList().forEach(movie => {
-    getMovies.getMovieById(movie)
+    getMovies.getMovieByIdForLibrary(movie)
       .then(renderMovieCardLibrary);
   });
 }
@@ -37,7 +36,7 @@ function onWatchedBtnClick() {
   refs.libraryQueueBtn.classList.remove('is-active-btn');
   refs.cardsContainerRef.innerHTML = '';
   getWatchedList().forEach(movie => {
-    getMovies.getMovieById(movie)
+    getMovies.getMovieByIdForLibrary(movie)
       .then(renderMovieCardLibrary);
   });
 }

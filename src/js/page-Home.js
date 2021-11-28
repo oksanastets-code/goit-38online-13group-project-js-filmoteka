@@ -1,11 +1,17 @@
 import refs from './get-refs';
 import API from './apiService.js';
-import {renderMovieCard} from './render-movie-card';
+import { renderMovieCard } from './render-movie-card';
+import { renderPaginationTrendMovies } from './pagination';
 
 refs.homeRef.addEventListener('click', onHomeClick);
 
 const getMovies = new API();
-getMovies.getTrendingMovies().then(renderMovieCard);
+getMovies.getTrendingMovies(1)
+  .then(r => {
+    renderMovieCard(r);
+    renderPaginationTrendMovies(getMovies.getTotalPages(), 1, 20);
+  } 
+);
 
 
 function onHomeClick(e) {
@@ -15,7 +21,9 @@ function onHomeClick(e) {
   refs.headerBtnRef.classList.add('visually-hidden');
   refs.homeRef.classList.add('is-active-page');
   refs.libraryRef.classList.remove('is-active-page');
-  getMovies.getTrendingMovies().then(renderMovieCard);
+
+  getMovies.getTrendingMovies(1).then(renderMovieCard);
+  renderPaginationTrendMovies(getMovies.totalPages , 1);
   // refs.notification.classList.add('visually-hidden');
 }
 

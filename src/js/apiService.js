@@ -6,22 +6,21 @@ import { getFromLocalStorage } from './localStorageLang';
 
 let langs = getFromLocalStorage('lang');
 
+
 export default class moviesApiService {
   constructor() {
     this.query = '';
-    this.page = 1;
-
-  }
-  fetchTrendingMovies() {
-    return fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${this.page}`)
-      .then(r => r.json());
+    this.totalPages = 1;
   }
 
-  getTrendingMovies() {
+  getTrendingMovies(page) {
     return (
-      // fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${this.page}`)
-      //   .then(r => r.json())
-      this.fetchTrendingMovies()
+      fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${page}`)
+        .then(r => r.json())
+        .then(r => {
+          this.setTotalPages(r.total_results);
+          return r;
+        })
         .then(({ results }) => {
           return this.getGenres().then(r => {
             return results.map(film => ({
@@ -31,18 +30,28 @@ export default class moviesApiService {
               name: film.name ? this.getCuttedName(film.name) : '',
               release_date: film.release_date ? this.getCuttedDate(film.release_date) : '',
               first_air_date: film.first_air_date ? this.getCuttedDate(film.first_air_date) : '',
-              genre_ids: this.getGenreName(r, film.genre_ids),
+              genre_ids: film.genre_ids ? this.getGenreName(r, film.genre_ids): [],
             }));
           });
         })
     );
   }
-
   getMovieById(id) {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${langs}`)
       .then(r => r.json())
       .then(({ ...results }) => {
-        results.genres = results.genres.map(genre => genre.name);
+        results.genres = results.genres ? results.genres.map(genre => genre.name) : [];
+        return results;
+      });
+  }
+
+  getMovieByIdForLibrary(id) {
+    return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${langs}`)
+      .then(r => r.json())
+      .then(({ ...results }) => {
+        results.release_date = results.release_date ? this.getCuttedDate(results.release_date) : '';        
+        results.title = results.title ? this.getCuttedName(results.title) : '',
+        results.genres =  results.genres ? this.getGenreNameForLibrary(results.genres) : [];
         return results;
   
       });
@@ -51,6 +60,10 @@ export default class moviesApiService {
   getMoviesByQuery() {
     return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}&page=${this.page}`)
       .then(r => r.json())
+      .then(r => {
+        this.setTotalPages(r.total_pages);
+        return r;
+      })      
       .then(({ results }) => {
         return this.getGenres().then(r => {
           return results.map(film => ({
@@ -59,7 +72,7 @@ export default class moviesApiService {
             name: film.name ? this.getCuttedName(film.name) : '',
             release_date: film.release_date ? film.release_date.slice(0, 4) : '',
             first_air_date: film.first_air_date ? film.first_air_date.slice(0, 4) : '',
-            genre_ids: this.getGenreName(r, film.genre_ids),
+            genre_ids: film.genre_ids ? this.getGenreName(r, film.genre_ids): [],
           }));
         });
       });
@@ -91,6 +104,7 @@ export default class moviesApiService {
   getGenreName(genres, numbers) {
     const genreNames = [];
     let genreNamesList = '';
+
     numbers.forEach(number => {
       genres.find(genre => {
         if (number === genre.id) {
@@ -106,13 +120,24 @@ export default class moviesApiService {
     return genreNamesList;
   }
 
-  incrementPage() {
-    this.page += 1;
+  getGenreNameForLibrary(genresList) {
+    let genres = genresList.map(genre => genre.name);
+    if (genres.length > 3) {
+      console.log('ddfwfwef', genres);
+      genres.splice(2, 2, 'Other');
+      console.log('ddfwfwef', genres);
+      return genres;
+    }
+      return genres;
+  }
+  setTotalPages(totalPages) {
+    this.totalPages = totalPages;
   }
 
-  nullifyPage() {
-    this.page = 1;
+  getTotalPages() {
+    return this.totalPages;
   }
+
   // get page() {
   //   this.page;
   // }
