@@ -1,5 +1,9 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import ApiService from '../js/apiService.js';
+
+
+// const paginateService = new ApiService;
 
 const API_KEY = 'bffba07cef2d165abd193feceb46d279';
 
@@ -10,7 +14,7 @@ function getTotalItems() {
         .then(r => r.json());
    
 }
-function renderPaginationTrendMovies(totalItems) {
+function renderPaginationTrendMovies(totalItems, page) {
   const container = document.getElementById('pagination');
   const options = {
     totalItems,
@@ -38,13 +42,17 @@ function renderPaginationTrendMovies(totalItems) {
     };
     
     const pagination = new Pagination(container, options);
+
     pagination.on('afterMove', (event) => {
-     const currentPage = event.page;
-     console.log(currentPage);
-});
+        const currentPage = event.page;
+        console.log(currentPage);
+        
+    });
+    pagination.movePageTo(page);
 }
 getTotalItems()
     .then(data => {
         renderPaginationTrendMovies(data.total_pages);
-        console.log(data.total_pages);
+        console.log(data);
     });
+
