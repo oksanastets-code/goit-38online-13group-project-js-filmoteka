@@ -32,18 +32,18 @@ function addToQueueList(id, btn) {
   queueList.push(id);
   localStorage.setItem('queueList', JSON.stringify(queueList));
   btn.textContent = 'remove from queue';
-  btn.style.backgroundColor = '#ff6b01';
-  btn.style.color = '#ffffff';
-  btn.style.borderColor = '#ff6b01';
+  btn.style.backgroundColor = '$accent-color';
+  btn.style.color = '$secondary-text-color';
+  btn.style.borderColor = '$accent-color';
 }
 
 function removeFromQueueList(id, btn) {
   queueList.pop(id);
   localStorage.setItem('queueList', JSON.stringify(queueList));
   btn.textContent = 'add to queue';
-  btn.style.backgroundColor = '#ffffff';
-  btn.style.color = '#000000';
-  btn.style.borderColor = '#000000';
+  btn.style.backgroundColor = '$primary-background-color';
+  btn.style.color = '$primary-text-color';
+  btn.style.borderColor = '$primary-text-color';
 }
 
 function onWatchedBtnClick(id, btn) {
@@ -63,16 +63,16 @@ function addToWatchedList(id, btn) {
   watchedList.push(id);
   localStorage.setItem('watchedList', JSON.stringify(watchedList));
   btn.textContent = 'remove from Watched';
-  btn.style.backgroundColor = '#ff6b01';
-  btn.style.color = '#ffffff';
-  btn.style.borderColor = '#ff6b01';
+  btn.style.backgroundColor = '$accent-color';
+  btn.style.color = '$secondary-text-color';
+  btn.style.borderColor = '$accent-color';
 }
 
 function removeFromWatchedList(id, btn) {
   watchedList.pop(id);
   localStorage.setItem('watchedList', JSON.stringify(watchedList));
   btn.textContent = 'add to Watched';
-  btn.style.backgroundColor = '#ffffff';
-  btn.style.color = '#000000';
-  btn.style.borderColor = '#000000';
+  btn.style.backgroundColor = '$primary-background-color';
+  btn.style.color = '$primary-text-color';
+  btn.style.borderColor = '$primary-text-color';
 }
