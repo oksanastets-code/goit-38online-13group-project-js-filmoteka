@@ -7,6 +7,7 @@ import './js/search.js';
 import './js/up-btn.js';
 import './js/modalTeam.js';
 import './js/spinner';
+import './js/chenge-theme';
 import './js/add-to-libraries';
 import './js/pagination.js';
 import './js/localization';
