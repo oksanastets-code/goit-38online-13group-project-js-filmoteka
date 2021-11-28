@@ -8,11 +8,12 @@ export default class moviesApiService {
   constructor() {
     this.query = '';
     this.page = 1;
+
   }
   getTrendingMovies() {
     let langs = getFromLocalStorage('lang');
     return (
-      fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}`)
+      fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${this.page}`)
         .then(r => r.json())
         //  .then(console.log)
         .then(({ results }) => {
@@ -41,7 +42,7 @@ export default class moviesApiService {
   }
 
   getMoviesByQuery() {
-    return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}`)
+    return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}&page=${this.page}`)
       .then(r => r.json())
       .then(({ results }) => {
         return this.getGenres().then(r => {
@@ -98,13 +99,19 @@ export default class moviesApiService {
     return genreNamesList;
   }
 
-  incrementPage() {
-    this.page += 1;
-  }
+  // incrementPage() {
+  //   this.page += 1;
+  // }
 
   nullifyPage() {
     this.page = 1;
   }
+  // get page() {
+  //   this.page;
+  // }
+  // set page(newPage) {
+  //   this.page = newPage;
+  //   }
 
   get Query() {
     return this.query;
