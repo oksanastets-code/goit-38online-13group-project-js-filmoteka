@@ -325,6 +325,7 @@
   opacity: 1;
   overflow-y: scroll;
   @include transition(opacity);
+  z-index: 999;
 }
 .backdrop.visually-hidden .film {
   transform: translate(-50%, -50%) scale(0);
