@@ -1,7 +1,8 @@
 import ApiService from '../js/apiService.js';
 import refs from '../js/get-refs.js';
-import renderMovieCard from './render-movie-card';
+import {renderMovieCard} from './render-movie-card';
 import { getMovies } from './page-Home.js';
+// import loader from './spinner.js';
 
 // new examplar
 const searchMovies = new ApiService();
@@ -10,48 +11,34 @@ refs.searchForm.addEventListener('submit', onSearch);
 
 function onSearch(e) {
   e.preventDefault();
-  // console.log('submit');
-  clearCardsContainer();
   searchMovies.Query = e.currentTarget.elements.query.value;
-  console.log(e.currentTarget.elements.query.value);
-  
   // Verification on empty request
   if (!searchMovies.query.trim()) {
-    getMovies.getTrendingMovies().then(renderMovieCard);
-    // refs.notification.classList.remove('visually-hidden');
     refs.notificationText.style.opacity = '1';
     refs.searchIconEl.classList.add('visually-hidden');
     setTimeout(() => {
-      // refs.notification.classList.add('visually-hidden');
+      refs.headerInputField.value = '';
       refs.notificationText.style.opacity = '0';
       refs.searchIconEl.classList.remove('visually-hidden');
-      window.location.reload(true);
     }, 2000);
-
     return;
   }
-  // refs.notification.classList.add('visually-hidden');
    searchMovies.nullifyPage();
 
-  onSearchMovies();
+  onSearchMovies(e);
 }
-//  By start searching
-function clearCardsContainer() {
-  refs.cardsContainerRef.innerHTML = '';
-}
-function onSearchMovies() {
+
+function onSearchMovies(e) {
   searchMovies.getMoviesByQuery().then(data => {
     //   if nothing is found
     if (data.length === 0) {
-      getMovies.getTrendingMovies().then(renderMovieCard);
-      // refs.notification.classList.remove('visually-hidden');
-       refs.notificationText.style.opacity = '1';
+
+      refs.notificationText.style.opacity = '1';
       refs.searchIconEl.classList.add('visually-hidden');
       setTimeout(() => {
-        // refs.notification.classList.add('visually-hidden');
-         refs.notificationText.style.opacity = '0';
-        refs.searchIconEl.classList.remove('visually-hidden');
-        window.location.reload(true);
+      refs.headerInputField.value = '';
+      refs.notificationText.style.opacity = '0';
+      refs.searchIconEl.classList.remove('visually-hidden');
       }, 2000);
       return;
     }

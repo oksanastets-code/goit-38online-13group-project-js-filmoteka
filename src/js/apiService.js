@@ -2,14 +2,19 @@ const API_KEY = 'bffba07cef2d165abd193feceb46d279';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+import { getFromLocalStorage } from './localStorageLang';
+
+let langs = getFromLocalStorage('lang');
+
 export default class moviesApiService {
   constructor() {
     this.query = '';
     this.page = 1;
+
   }
   getTrendingMovies() {
     return (
-      fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}`)
+      fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${this.page}`)
         .then(r => r.json())
         //  .then(console.log)
         .then(({ results }) => {
@@ -29,16 +34,17 @@ export default class moviesApiService {
   }
 
   getMovieById(id) {
-    return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
+    return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${langs}`)
       .then(r => r.json())
       .then(({ ...results }) => {
         results.genres = results.genres.map(genre => genre.name);
         return results;
+  
       });
   }
 
   getMoviesByQuery() {
-    return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}`)
+    return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}&page=${this.page}`)
       .then(r => r.json())
       .then(({ results }) => {
         return this.getGenres().then(r => {
@@ -55,7 +61,7 @@ export default class moviesApiService {
   }
 
   getGenres() {
-    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
+    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=${langs}`)
       .then(r => r.json())
       .then(({ genres }) => {
         return genres;
@@ -68,6 +74,7 @@ export default class moviesApiService {
     return cuttedDate;
     // console.log(string);
   }
+
   getCuttedName(string) {
     let cuttedName;
     // console.log(string.length);
@@ -94,13 +101,19 @@ export default class moviesApiService {
     return genreNamesList;
   }
 
-  incrementPage() {
-    this.page += 1;
-  }
+  // incrementPage() {
+  //   this.page += 1;
+  // }
 
   nullifyPage() {
     this.page = 1;
   }
+  // get page() {
+  //   this.page;
+  // }
+  // set page(newPage) {
+  //   this.page = newPage;
+  //   }
 
   get Query() {
     return this.query;

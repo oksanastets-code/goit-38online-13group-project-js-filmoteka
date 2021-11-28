@@ -29,15 +29,6 @@
   &:focus,
   &:hover {
     cursor: pointer;
-    border-color: $accent-text-color;
-    color: $accent-text-color;
-  }
-  &:focus,
-  &:hover.is-active-btn {
-    cursor: pointer;
-    border-color: $accent-text-color;
-    background-color: transparent;
-    color: $accent-text-color;
   }
 }
 .is-active-btn {

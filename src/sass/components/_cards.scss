@@ -13,41 +13,59 @@
   margin-bottom: 20px;
   width: 280px;
   border-radius: 5px;
-
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-
-  transition-property: transform;
-  transition-duration: 300ms;
-  transition-timing-function: ease;
+  @include transition (transform);
 
   @media screen and (min-width: $tablet) {
     flex-basis: calc((100% - 60px) / 2);
     margin-right: 30px;
     margin-bottom: 30px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $desktop) {
     flex-basis: calc((100% - 90px) / 3);
   }
 
-  &:hover,
-  &:focus {
-    cursor: pointer;
-
+  &::after {
+    content: "";
+    border-radius: 5px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-
-    transition-duration: 300ms;
-    transition-timing-function: ease;
-    transform: scale(1.05);
+    opacity: 0;
+    @include transition (opacity);
   }
 
+  &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 1;
+     
+  }
+
+  
+
   &__imgBox {
-    border-radius: 5px;
     background-color: rgb(94, 92, 92);
+    overflow: hidden;
+    height: 402px;
+    @media screen and (min-width: $tablet) {
+      height: 398px;
+    }
   }
 
   &__img {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 

@@ -1,0 +1,60 @@
+{
+  "logo": {
+    "uk": "Фільмотека",
+    "ru": "Фильмотека",
+    "en": "Filmoteka"
+  },
+
+  "home": {
+    "uk": "Головна",
+    "ru": "Домой",
+    "en": "Home"
+  },
+
+  "library": {
+    "uk": "Моя бібліотека",
+    "ru": "Моя библиотека",
+    "en": "My library"
+  },
+
+  "watched": {
+    "uk": "переглянуті",
+    "ru": "просмотренные",
+    "en": "watched"
+  },
+  "queue": {
+    "uk": "в черзі",
+    "ru": "в очереди",
+    "en": "queue"
+  },
+  "input": {
+    "uk": "Пошук фільмів",
+    "ru": "Поиск фильмов",
+    "en": "Search movies"
+  },
+  "notification": {
+    "uk": "Результат пошуку не вдалий. Спробуйте інше ключове слово.",
+    "ru": "Результат поиска не удался. Попробуйте другое ключевое слово.",
+    "en": "Search result not successful. Try another keyword."
+  },
+  "rights": {
+    "uk": "Всі права захищені",
+    "ru": "Все права защищены",
+    "en": "All Rights Reserved"
+  },
+  "developed": {
+    "uk": "Зроблено з",
+    "ru": "Сделано с",
+    "en": "Developed with"
+  },
+  "byGoit": {
+    "uk": " ",
+    "ru": " ",
+    "en": "by"
+  },
+  "goit": {
+    "uk": "Студентами GoIT",
+    "ru": "Студентами GoIT",
+    "en": "GoIT Students"
+  }
+}

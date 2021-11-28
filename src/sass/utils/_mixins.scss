@@ -12,7 +12,7 @@
 }
 //  @include font-properties-cutted(14, 1.14);
 
-@mixin transition($property, $duration: 250ms, $timing-function: cubic-bezier(0.4, 0, 0.2, 1)) {
+@mixin transition($property, $duration: 300ms, $timing-function: ease) {
   transition: $property $duration $timing-function;
 }
 //use: @include transition (property);

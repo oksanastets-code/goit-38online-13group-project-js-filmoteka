@@ -1,0 +1,33 @@
+   <div class="film__img-container">
+        <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="No poster for {{title}}{{name}}" class="film__img">>
+    </div>
+    <div class="film__info-container">
+        <h2 class="film__title">{{title}}{{name}}</h2>
+        <table class="film__feature">
+            <tr class="film__feature-line">
+                <td class="film__feature-option lang-votes">Vote / Votes</td>
+                <td class="film__feature-details"><span class="vote">{{this.vote_average}}</span> / {{this.vote_count}}</td>
+            </tr>
+            <tr class="film__feature-line">
+                <td class="film__feature-option lang-popularity">Popularity</td>
+                <td class="film__feature-details">{{this.popularity}}</td>
+            </tr>
+            <tr class="film__feature-line">
+                <td class="film__feature-option lang-titleOriginal">Original Title</td>
+                <td class="film__feature-details">{{original_title}}{{original_name}}</td>
+            </tr>
+            <tr class="film__feature-line">
+                <td class="film__feature-option lang-genres">Genre</td>
+                <td class="film__feature-details">{{genres}}</td>
+            </tr>
+        </table>
+        <div class="film__about-container">
+            <p class="about lang-about">ABOUT</p>
+            <p class="film__description">{{overview}}</p>
+        </div>
+        <div class="btn-container">
+                <button type="button" class="btn btn__to-watched" data-name="watched" >ADD TO WATCHED</button>
+                <button type="button" class="btn btn__to-queue" data-name="queue">ADD TO QUEUE</button>    
+        </div>
+        
+    </div>
