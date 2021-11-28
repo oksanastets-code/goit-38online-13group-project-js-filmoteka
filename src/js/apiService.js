@@ -12,11 +12,16 @@ export default class moviesApiService {
     this.page = 1;
 
   }
+  fetchTrendingMovies() {
+    return fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${this.page}`)
+      .then(r => r.json());
+  }
+
   getTrendingMovies() {
     return (
-      fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${this.page}`)
-        .then(r => r.json())
-        //  .then(console.log)
+      // fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${this.page}`)
+      //   .then(r => r.json())
+      this.fetchTrendingMovies()
         .then(({ results }) => {
           return this.getGenres().then(r => {
             return results.map(film => ({
@@ -101,9 +106,9 @@ export default class moviesApiService {
     return genreNamesList;
   }
 
-  // incrementPage() {
-  //   this.page += 1;
-  // }
+  incrementPage() {
+    this.page += 1;
+  }
 
   nullifyPage() {
     this.page = 1;

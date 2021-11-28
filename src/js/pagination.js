@@ -3,17 +3,13 @@ import 'tui-pagination/dist/tui-pagination.css';
 import ApiService from '../js/apiService.js';
 
 
-// const paginateService = new ApiService;
+const paginateService = new ApiService;
 
-const API_KEY = 'bffba07cef2d165abd193feceb46d279';
-
-const BASE_URL = 'https://api.themoviedb.org/3';
-
-function getTotalItems() {
-    return fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}`)
-        .then(r => r.json());
+// function getTotalItems() {
+//     return fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}`)
+//         .then(r => r.json());
    
-}
+// }
 function renderPaginationTrendMovies(totalItems, page) {
   const container = document.getElementById('pagination');
   const options = {
@@ -45,12 +41,13 @@ function renderPaginationTrendMovies(totalItems, page) {
 
     pagination.on('afterMove', (event) => {
         const currentPage = event.page;
+        // renderPaginationTrendMovies(currentPage);
         console.log(currentPage);
         
     });
     pagination.movePageTo(page);
 }
-getTotalItems()
+paginateService.fetchTrendingMovies()
     .then(data => {
         renderPaginationTrendMovies(data.total_pages);
         console.log(data);
