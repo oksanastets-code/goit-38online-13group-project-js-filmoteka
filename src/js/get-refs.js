@@ -5,6 +5,7 @@ export default {
   headerInputRef: document.querySelector('.js-header-input'),
   headerBtnRef: document.querySelector('.js-header-buttons'),
   cardsContainerRef: document.querySelector('.js-card-container'),
+  input: document.querySelector('#theme-switch-toggle'),
 
   // search
   headerInputField: document.querySelector('.js-input-field'),
