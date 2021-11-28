@@ -75,6 +75,8 @@
     
   }
 
+  
+
   &__query {
     display: block;
     justify-content: center;
@@ -131,6 +133,14 @@
     justify-content: center;
   }
 }
+
+.logo__link:hover .logo__icon {
+  stroke: $accent-text-color;
+}
+.logo__link:hover .logo__title {
+  color: $accent-text-color;
+}
+
 .header.library {
   max-width: $mobile;
   height: auto;
@@ -177,3 +187,17 @@
     margin-bottom: 45px;
   }
 }
+
+
+// animation: move 3s linear alternate infinite;
+// }
+ 
+ 
+//  @keyframes move {
+//     0% {
+//         bottom: 0;
+//     }
+//     100% {
+//         top: 200px;
+//     }
+// }
