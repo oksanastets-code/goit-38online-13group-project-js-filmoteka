@@ -54,6 +54,8 @@
     background-position: center;
     overflow: hidden;
     height: 402px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     @media screen and (min-width: $tablet) {
       height: 398px;
     }
