@@ -55,28 +55,20 @@
   padding-bottom: 40px;
   @media screen and (min-width: $tablet) {
     padding-bottom: 60px;
-    // padding-left: 197px;
-    // padding-right: 197px;
-  }
-  @media screen and (min-width: $desktop) {
-    padding-bottom: 60px;
-    // padding-left: 325px;
-    // padding-right: 325px;
   }
 }
 .pagination-section {
   // outline: 1px solid tomato;
 }
 .pagination-mobile {
-  display: flex;
+  outline: 1px solid teal;
   @media screen and (min-width: $tablet) {
     display: none;
   }
 }
 .pagination-tablet {
-  display: flex;
-
-  @media screen and (max-width: 767px) {
+  outline: 1px solid yellow;
+  @media screen and (max-width: $tablet - 1) {
     display: none;
   }
 }
