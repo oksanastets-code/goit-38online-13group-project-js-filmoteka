@@ -4,12 +4,14 @@ import ApiService from './apiService.js';
 import { upBtn } from './up-btn.js';
 import { changeModalLanguage } from './localization.js';
 import { getFromLocalStorage } from './localStorageLang';
+import { onError } from './pnotify';
 
 let langs = getFromLocalStorage('lang');
 // changeModalLanguage();
 // open/close modal
 refs.openModalEl.addEventListener('click', onClick);
-
+const getInfoFilm = new ApiService();
+  
 function onClick(event) {
   event.preventDefault();
   if (event.target.nodeName !== 'IMG' && event.target.nodeName !== 'P') {
@@ -19,6 +21,7 @@ function onClick(event) {
 }
 
 function openModal() {
+  
   refs.modalEl.classList.remove('visually-hidden');
   if (!refs.modalEl.classList.contains('visually-hidden')) {
     refs.bodyEl.classList.add('overflow-hidden');
@@ -64,7 +67,7 @@ function renderModal(event) {
   idFilm = event.target.dataset.id;
   console.log('my request:', idFilm);
 
-  const getInfoFilm = new ApiService();
+
 
   getInfoFilm.getMovieById(idFilm).then(r => {
     renderFilmCard(r);
