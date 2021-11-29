@@ -1,3 +1,56 @@
+.tui-pagination.pagination-custom {
+  margin: 0;
+  height: 40px;
+}
+.pagination-custom > strong,
+.pagination-custom > span,
+.pagination-custom > .tui-page-btn.tui-is-selected.tui-first-child,
+.pagination-custom > .tui-page-btn.tui-is-selected.tui-last-child {
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+.pagination-custom > a.tui-page-btn,
+.pagination-custom > .tui-page-btn.tui-is-disabled {
+  border: none;
+  width: 40px;
+  height: 40px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  color: $primary-text-color;
+  background-color: transparent;
+  font-weight: 500;
+  @include font-properties-cutted(12, 1.33);
+}
+.pagination-custom > .tui-page-btn:hover {
+  border-radius: 5px;
+}
+.pagination-custom > strong.tui-is-selected {
+  border: none;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  background-color: $accent-text-color;
+  font-weight: 500;
+  @include font-properties-cutted(12, 1.33);
+}
+.pagination-custom > .tui-page-btn.tui-prev,
+.pagination-custom > .tui-page-btn.tui-next {
+  border: none;
+  border-radius: 5px;
+  margin-right: 0;
+  margin-left: 0;
+  border-radius: 5px;
+  background-color: $footer-background-color;
+}
+.pagination-custom > .tui-page-btn.tui-first,
+.pagination-custom > .tui-page-btn.tui-last,
+.pagination-custom > .tui-page-btn.tui-prev-is-ellip,
+.pagination-custom > .tui-page-btn.tui-next-is-ellip {
+  display: none;
+}
 .pagination {
   padding-bottom: 40px;
   @media screen and (min-width: $tablet) {
@@ -12,7 +65,7 @@
   }
 }
 .pagination-section {
-  outline: 1px solid tomato;
+  // outline: 1px solid tomato;
 }
 .pagination-mobile {
   display: flex;
@@ -27,10 +80,7 @@
     display: none;
   }
 }
-.pagination-buttons {
-  display: flex;
-  color: $primary-text-color;
-}
+
 .pagination-arrow-btn {
   width: 40px;
   height: 40px;
@@ -46,38 +96,7 @@
 .arrow {
   stroke: currentColor;
 }
-.pagination-btn {
-  width: 40px;
-  height: 40px;
-  padding: 12px;
-  background-color: $footer-background-color;
-  // background-color: transparent;
 
-  cursor: pointer;
-}
 .pagination-btn-tablet {
   width: 32px;
-}
-.pagination-btn-active {
-  width: 40px;
-  height: 40px;
-  padding: 12px;
-
-  color: $secondary-text-color;
-  background-color: $accent-text-color;
-  font-weight: 500;
-  @include font-properties-cutted(12, 1.33);
-
-  cursor: pointer;
-}
-// .pagination-number {
-//   font-family: $main-font;
-//   color: $primary-text-color;
-//   font-weight: 500;
-//   @include font-properties-cutted(12, 1.33);
-// }
-.pagination-number-active {
-  color: $secondary-text-color;
-  font-weight: 500;
-  @include font-properties-cutted(12, 1.33);
 }
