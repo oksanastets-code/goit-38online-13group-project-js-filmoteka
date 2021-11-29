@@ -41,6 +41,7 @@ export default class moviesApiService {
       .then(r => r.json())
       .then(({ ...results }) => {
         results.genres = results.genres ? results.genres.map(genre => genre.name).join(', ') : [];
+        console.log(results);
         return results;
       });
   }
