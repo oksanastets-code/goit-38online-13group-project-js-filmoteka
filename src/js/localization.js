@@ -95,3 +95,16 @@ export function changeModalLanguage() {
 //   case 'en':
 //     btn.textContent = 'remove from queue';
 // }
+export function langText(textEn, textRu, textUa) {
+  if (langs === 'en') {
+    return textEn;
+  }
+  if (langs === 'ru') {
+    return textRu;
+  }
+  if (langs === 'uk') {
+    return textUa;
+  }
+}
+// console.log(langText('end', 'rueb', 'uknt'));
+// langText('end', 'rueb', 'uknt');
