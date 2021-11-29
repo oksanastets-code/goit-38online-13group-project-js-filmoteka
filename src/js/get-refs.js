@@ -25,4 +25,6 @@ export default {
   bodyEl: document.querySelector('body'),
   modalFilmCardEl: document.querySelector('.js-film'),
 
+  //pagination
+ pagination: document.querySelector('.pagination'),
 }

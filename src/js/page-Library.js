@@ -17,7 +17,6 @@ function onLibraryClick(e) {
   refs.headerBtnRef.classList.remove('visually-hidden');
   refs.homeRef.classList.remove('is-active-page');
   refs.libraryRef.classList.add('is-active-page');
- 
   onQueueBtnClick();
 }
 
@@ -44,6 +43,7 @@ function onWatchedBtnClick() {
 function getQueueList() {
     if (!(localStorage.getItem('queueList')) || JSON.parse(localStorage.getItem('queueList')).length === 0 ) {
       console.log('empty');
+      refs.pagination.style.display = 'none';
       return [];
     } else {
       return queueList = JSON.parse(localStorage.getItem('queueList'));

@@ -30,6 +30,7 @@ export function renderPaginationTrendMovies(totalItems, page, itemsPerPage) {
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
+    
     };
     
   const pagination = new Pagination(container, options);

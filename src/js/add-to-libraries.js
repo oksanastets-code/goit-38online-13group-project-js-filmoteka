@@ -44,6 +44,7 @@ function removeFromQueueList(id, btn) {
   btn.style.backgroundColor = '#ffffff';
   btn.style.color = '#000000';
   btn.style.borderColor = '#000000';
+  clearGallery()
 }
 
 function onWatchedBtnClick(id, btn) {
@@ -75,4 +76,9 @@ function removeFromWatchedList(id, btn) {
   btn.style.backgroundColor = '#ffffff';
   btn.style.color = '#000000';
   btn.style.borderColor = '#000000';
+  clearGallery()
+}
+
+function clearGallery() {
+  refs.cardsContainerRef.innerHTML = '';
 }
