@@ -40,7 +40,7 @@ export default class moviesApiService {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${langs}`)
       .then(r => r.json())
       .then(({ ...results }) => {
-        results.genres = results.genres ? results.genres.map(genre => genre.name) : [];
+        results.genres = results.genres ? results.genres.map(genre => genre.name).join(', ') : [];
         return results;
       });
   }
@@ -57,11 +57,11 @@ export default class moviesApiService {
       });
   }
 
-  getMoviesByQuery() {
-    return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}&page=${this.page}`)
+  getMoviesByQuery(page) {
+    return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}&page=${page}`)
       .then(r => r.json())
       .then(r => {
-        this.setTotalPages(r.total_pages);
+        this.setTotalPages(r.total_results);
         return r;
       })      
       .then(({ results }) => {
@@ -76,6 +76,27 @@ export default class moviesApiService {
           }));
         });
       });
+  }
+
+  getMoviesByQueryPagination(page, query) {
+  return fetch(`${BASE_URL}/search/movie?query=${query}&api_key=${API_KEY}&page=${page}`)
+    .then(r => r.json())
+    .then(r => {
+      this.setTotalPages(r.total_results);
+      return r;
+    })      
+    .then(({ results }) => {
+      return this.getGenres().then(r => {
+        return results.map(film => ({
+          ...film,
+          title: film.title ? this.getCuttedName(film.title) : '',
+          name: film.name ? this.getCuttedName(film.name) : '',
+          release_date: film.release_date ? film.release_date.slice(0, 4) : '',
+          first_air_date: film.first_air_date ? film.first_air_date.slice(0, 4) : '',
+          genre_ids: film.genre_ids ? this.getGenreName(r, film.genre_ids): [],
+        }));
+      });
+    });
   }
 
   getGenres() {
@@ -138,16 +159,10 @@ export default class moviesApiService {
     return this.totalPages;
   }
 
-  // get page() {
-  //   this.page;
-  // }
-  // set page(newPage) {
-  //   this.page = newPage;
-  //   }
-
   get Query() {
     return this.query;
-  }
+}
+  
   set Query(newQuery) {
     this.query = newQuery;
   }

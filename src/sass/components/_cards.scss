@@ -14,7 +14,7 @@
   width: 280px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  @include transition (transform);
+  @include transition(transform);
 
   @media screen and (min-width: $tablet) {
     flex-basis: calc((100% - 60px) / 2);
@@ -26,7 +26,7 @@
   }
 
   &::after {
-    content: "";
+    content: '';
     border-radius: 5px;
     position: absolute;
     z-index: -1;
@@ -36,24 +36,22 @@
     height: 100%;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     opacity: 0;
-    @include transition (opacity);
+    @include transition(opacity);
   }
 
   &:hover {
-      transform: scale(1.05);
-      cursor: pointer;
+    transform: scale(1.05);
+    cursor: pointer;
   }
 
   &:hover::after,
   &:focus::after {
     opacity: 1;
-     
   }
 
-  
-
   &__imgBox {
-    background-color: rgb(94, 92, 92);
+    background-image: url(../images/noPoster.jpg);
+    background-position: center;
     overflow: hidden;
     height: 402px;
     @media screen and (min-width: $tablet) {
