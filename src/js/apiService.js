@@ -6,7 +6,6 @@ import { getFromLocalStorage } from './localStorageLang';
 
 let langs = getFromLocalStorage('lang');
 
-
 export default class moviesApiService {
   constructor() {
     this.query = '';
@@ -14,27 +13,25 @@ export default class moviesApiService {
   }
 
   getTrendingMovies(page) {
-    return (
-      fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${page}`)
-        .then(r => r.json())
-        .then(r => {
-          this.setTotalPages(r.total_results);
-          return r;
-        })
-        .then(({ results }) => {
-          return this.getGenres().then(r => {
-            return results.map(film => ({
-              ...film,
-              // title: (film.title.length > 35) ? film.title.slice(0, 35) : film.title,
-              title: film.title ? this.getCuttedName(film.title) : '',
-              name: film.name ? this.getCuttedName(film.name) : '',
-              release_date: film.release_date ? this.getCuttedDate(film.release_date) : '',
-              first_air_date: film.first_air_date ? this.getCuttedDate(film.first_air_date) : '',
-              genre_ids: film.genre_ids ? this.getGenreName(r, film.genre_ids): [],
-            }));
-          });
-        })
-    );
+    return fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=${langs}&page=${page}`)
+      .then(r => r.json())
+      .then(r => {
+        this.setTotalPages(r.total_results);
+        return r;
+      })
+      .then(({ results }) => {
+        return this.getGenres().then(r => {
+          return results.map(film => ({
+            ...film,
+            // title: (film.title.length > 35) ? film.title.slice(0, 35) : film.title,
+            title: film.title ? this.getCuttedName(film.title) : '',
+            name: film.name ? this.getCuttedName(film.name) : '',
+            release_date: film.release_date ? this.getCuttedDate(film.release_date) : '',
+            first_air_date: film.first_air_date ? this.getCuttedDate(film.first_air_date) : '',
+            genre_ids: film.genre_ids ? this.getGenreName(r, film.genre_ids) : [],
+          }));
+        });
+      });
   }
   getMovieById(id) {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${langs}`)
@@ -50,21 +47,22 @@ export default class moviesApiService {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${langs}`)
       .then(r => r.json())
       .then(({ ...results }) => {
-        results.release_date = results.release_date ? this.getCuttedDate(results.release_date) : '';        
-        results.title = results.title ? this.getCuttedName(results.title) : '',
-        results.genres =  results.genres ? this.getGenreNameForLibrary(results.genres) : [];
+        results.release_date = results.release_date ? this.getCuttedDate(results.release_date) : '';
+        (results.title = results.title ? this.getCuttedName(results.title) : ''),
+          (results.genres = results.genres ? this.getGenreNameForLibrary(results.genres) : []);
         return results;
-  
       });
   }
 
   getMoviesByQuery(page) {
-    return fetch(`${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}&page=${page}`)
+    return fetch(
+      `${BASE_URL}/search/movie?query=${this.query}&api_key=${API_KEY}&page=${page}&language=${langs}`,
+    )
       .then(r => r.json())
       .then(r => {
         this.setTotalPages(r.total_results);
         return r;
-      })      
+      })
       .then(({ results }) => {
         return this.getGenres().then(r => {
           return results.map(film => ({
@@ -73,31 +71,33 @@ export default class moviesApiService {
             name: film.name ? this.getCuttedName(film.name) : '',
             release_date: film.release_date ? film.release_date.slice(0, 4) : '',
             first_air_date: film.first_air_date ? film.first_air_date.slice(0, 4) : '',
-            genre_ids: film.genre_ids ? this.getGenreName(r, film.genre_ids): [],
+            genre_ids: film.genre_ids ? this.getGenreName(r, film.genre_ids) : [],
           }));
         });
       });
   }
 
   getMoviesByQueryPagination(page, query) {
-  return fetch(`${BASE_URL}/search/movie?query=${query}&api_key=${API_KEY}&page=${page}`)
-    .then(r => r.json())
-    .then(r => {
-      this.setTotalPages(r.total_results);
-      return r;
-    })      
-    .then(({ results }) => {
-      return this.getGenres().then(r => {
-        return results.map(film => ({
-          ...film,
-          title: film.title ? this.getCuttedName(film.title) : '',
-          name: film.name ? this.getCuttedName(film.name) : '',
-          release_date: film.release_date ? film.release_date.slice(0, 4) : '',
-          first_air_date: film.first_air_date ? film.first_air_date.slice(0, 4) : '',
-          genre_ids: film.genre_ids ? this.getGenreName(r, film.genre_ids): [],
-        }));
+    return fetch(
+      `${BASE_URL}/search/movie?query=${query}&api_key=${API_KEY}&page=${page}&language=${langs}`,
+    )
+      .then(r => r.json())
+      .then(r => {
+        this.setTotalPages(r.total_results);
+        return r;
+      })
+      .then(({ results }) => {
+        return this.getGenres().then(r => {
+          return results.map(film => ({
+            ...film,
+            title: film.title ? this.getCuttedName(film.title) : '',
+            name: film.name ? this.getCuttedName(film.name) : '',
+            release_date: film.release_date ? film.release_date.slice(0, 4) : '',
+            first_air_date: film.first_air_date ? film.first_air_date.slice(0, 4) : '',
+            genre_ids: film.genre_ids ? this.getGenreName(r, film.genre_ids) : [],
+          }));
+        });
       });
-    });
   }
 
   getGenres() {
@@ -150,7 +150,7 @@ export default class moviesApiService {
       console.log('ddfwfwef', genres);
       return genres;
     }
-      return genres;
+    return genres;
   }
   setTotalPages(totalPages) {
     this.totalPages = totalPages;
@@ -162,8 +162,8 @@ export default class moviesApiService {
 
   get Query() {
     return this.query;
-}
-  
+  }
+
   set Query(newQuery) {
     this.query = newQuery;
   }

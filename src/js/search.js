@@ -25,7 +25,8 @@ function onSearch(e) {
     }, 2000);
     return;
   }
-
+ refs.paginationMobile.classList.remove('visually-hidden');
+  refs.paginationTablet.classList.remove('visually-hidden');
   onSearchMovies(e, query);
 }
 

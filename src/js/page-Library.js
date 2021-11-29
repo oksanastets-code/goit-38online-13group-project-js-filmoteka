@@ -17,7 +17,8 @@ function onLibraryClick(e) {
   refs.headerBtnRef.classList.remove('visually-hidden');
   refs.homeRef.classList.remove('is-active-page');
   refs.libraryRef.classList.add('is-active-page');
- 
+  refs.paginationMobile.classList.add('visually-hidden');
+  refs.paginationTablet.classList.add('visually-hidden');
   onQueueBtnClick();
 }
 
