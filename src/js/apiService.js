@@ -3,6 +3,7 @@ const API_KEY = 'bffba07cef2d165abd193feceb46d279';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 import { getFromLocalStorage } from './localStorageLang';
+import { langText } from './localization.js';
 
 let langs = getFromLocalStorage('lang');
 
@@ -131,7 +132,7 @@ export default class moviesApiService {
         if (number === genre.id) {
           genreNames.push(genre.name);
           if (genreNames.length > 3) {
-            genreNames.splice(2, 2, 'Other');
+            genreNames.splice(2, 2, langText('Other', 'Другие', 'Інші'));
             return;
           }
         }
@@ -145,7 +146,7 @@ export default class moviesApiService {
     let genres = genresList.map(genre => genre.name);
     if (genres.length > 3) {
       console.log('ddfwfwef', genres);
-      genres.splice(2, 2, 'Other');
+      genres.splice(2, 2, langText('Other', 'Другие', 'Інші'));
       console.log('ddfwfwef', genres);
       return genres;
     }
