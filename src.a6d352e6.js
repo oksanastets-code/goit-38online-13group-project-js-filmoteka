@@ -69,4 +69,4 @@ module.exports=[{name:"Roman",position:"Tech Lead",imageMember:"https://avatars.
 },{"./get-refs.js":"EGsz"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/page-Home.js"),require("./js/modal-film.js"),require("./js/page-Library.js"),require("./js/search.js"),require("./js/up-btn.js"),require("./js/modalTeam.js"),require("./js/spinner"),require("./js/change-theme"),require("./js/add-to-libraries"),require("./js/pagination.js"),require("./js/localization"),require("./js/pnotify");
 },{"./sass/main.scss":"clu1","./js/page-Home.js":"h17d","./js/modal-film.js":"voJm","./js/page-Library.js":"YDZQ","./js/search.js":"HU2o","./js/up-btn.js":"e4yY","./js/modalTeam.js":"fDFk","./js/spinner":"Sc1o","./js/change-theme":"yj0S","./js/add-to-libraries":"zGd5","./js/pagination.js":"o8lo","./js/localization":"kQRN","./js/pnotify":"fRfm"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-38online-13group-project-js-filmoteka/src.6530e2ef.js.map
+//# sourceMappingURL=/goit-38online-13group-project-js-filmoteka/src.a6d352e6.js.map
