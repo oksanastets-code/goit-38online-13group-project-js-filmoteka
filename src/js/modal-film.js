@@ -64,6 +64,11 @@ let idFilm;
 refs.openModalEl.addEventListener('click', renderModal);
 
 function renderModal(event) {
+  // Quard Clause
+    if (event.target.nodeName !== 'IMG') {
+      return;
+  }
+  
   idFilm = event.target.dataset.id;
   console.log('my request:', idFilm);
 
