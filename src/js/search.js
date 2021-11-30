@@ -3,8 +3,7 @@ import refs from '../js/get-refs.js';
 import {renderMovieCard} from './render-movie-card';
 import { renderPaginationQuery, renderPagination } from './pagination';
 
-// import loader from './spinner.js';
-  const searchMovies = new ApiService(); 
+const searchMovies = new ApiService(); 
 // new examplar
 // const searchMovies = new ApiService();
 
@@ -46,7 +45,9 @@ function onSearchMovies(e, query) {
     }
     renderMovieCard(data);
     refs.headerInputField.value = '';
-    renderPagination('query', searchMovies.getTotalPages(), 20, 12,1, query);
-
+     // нижче змінено кількість кнопок
+    // renderPagination('query', searchMovies.getTotalPages(), 20, 12, 1, query);
+    renderPagination('query', searchMovies.getTotalPages(), 20, 5, 1, query);
+    
   });
 }
