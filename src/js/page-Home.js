@@ -17,7 +17,9 @@ const getMovies = new API();
     //   renderPaginationTrendMoviesForMobiles(getMovies.getTotalPages(), 1, 20)
     // } renderPaginationTrendMoviesforTablet(getMovies.getTotalPages(), 1, 20);
 
-    renderPagination('trends', getMovies.getTotalPages(), 20, 12, 1);
+    // нижче змінено кількість кнопок
+    // renderPagination('trends', getMovies.getTotalPages(), 20, 12, 1);
+    renderPagination('trends', getMovies.getTotalPages(), 20, 5, 1);
   } 
 );
 
@@ -33,7 +35,9 @@ function onHomeClick(e) {
   getMovies.getTrendingMovies(1)
     .then(r => {
       renderMovieCard(r);
-      renderPagination('trends', getMovies.getTotalPages(), 20, 12, 1);
+       // нижче змінено кількість кнопок
+      // renderPagination('trends', getMovies.getTotalPages(), 20, 12, 1);
+      renderPagination('trends', getMovies.getTotalPages(), 20, 5, 1);
 
     } 
   );

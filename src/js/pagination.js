@@ -32,26 +32,28 @@ export function renderPagination(request, totalItems, itemsPerPage, visiblePages
     },
   };
   const pagination = new Pagination(container, options);
-  
-        if (request === 'query') {
-        pagination.on('afterMove', (event) => {
-          const currentPage = event.page;
-          paginateService.getMoviesByQueryPagination(currentPage, query).then(renderMovieCard);    
-          const element = document.getElementById('gallary');
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }); 
-      } else {
-      pagination.on('afterMove', (event) => {
+
+  if (request === 'query') {
+    pagination.on('afterMove', event => {
+      const currentPage = event.page;
+      paginateService.getMoviesByQueryPagination(currentPage, query).then(renderMovieCard);
+      //   тимчасово закоментовано для тестування пагінації
+      // const element = document.getElementById('gallary');
+      // element.scrollIntoView({
+      //   behavior: 'smooth',
+      //   block: 'start',
+      // });
+    });
+  } else {
+    pagination.on('afterMove', event => {
       const currentPage = event.page;
       paginateService.getTrendingMovies(currentPage).then(renderMovieCard);
-      const element = document.getElementById('gallary');
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    });      
-    }
+      //   тимчасово закоментовано для тестування пагінації
+      // const element = document.getElementById('gallary');
+      // element.scrollIntoView({
+      //   behavior: 'smooth',
+      //   block: 'start',
+      // });
+    });
+  }
 }
