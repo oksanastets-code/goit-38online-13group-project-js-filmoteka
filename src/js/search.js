@@ -1,7 +1,8 @@
 import ApiService from '../js/apiService.js';
 import refs from '../js/get-refs.js';
 import {renderMovieCard} from './render-movie-card';
-import { renderPaginationQuery } from './pagination';
+import { renderPaginationQuery, renderPagination } from './pagination';
+
 // import loader from './spinner.js';
   const searchMovies = new ApiService(); 
 // new examplar
@@ -25,8 +26,7 @@ function onSearch(e) {
     }, 2000);
     return;
   }
- refs.paginationMobile.classList.remove('visually-hidden');
-  refs.paginationTablet.classList.remove('visually-hidden');
+
   onSearchMovies(e, query);
 }
 
@@ -45,6 +45,8 @@ function onSearchMovies(e, query) {
       return;
     }
     renderMovieCard(data);
-    renderPaginationQuery(searchMovies.getTotalPages(), 1, 20, query)
+    refs.headerInputField.value = '';
+    renderPagination('query', searchMovies.getTotalPages(), 20, 12,1, query);
+
   });
 }

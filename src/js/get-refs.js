@@ -29,5 +29,5 @@ export default {
   paginationMobile: document.getElementById('pagination-mobile'),
   paginationTablet: document.getElementById('pagination-tablet'),
   mediaTablet: window.matchMedia('(max-width: 768px)'),
-
+  paginationContainer:  document.getElementById('pagination'),
 }
