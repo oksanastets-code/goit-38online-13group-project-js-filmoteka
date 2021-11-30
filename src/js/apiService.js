@@ -21,7 +21,7 @@ export default class moviesApiService {
         return r;
       })
       .then(({ results }) => {
-        return this.getGenres().then(r => {
+          return this.getGenres().then(r => {
           return results.map(film => ({
             ...film,
             // title: (film.title.length > 35) ? film.title.slice(0, 35) : film.title,
@@ -37,7 +37,7 @@ export default class moviesApiService {
   getMovieById(id) {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${langs}`)
       .then(r => r.json())
-      .then(({ ...results }) => {
+      .then(({ ...results }) => { 
         results.genres = results.genres ? results.genres.map(genre => genre.name).join(', ') : [];
         return results;
       });
