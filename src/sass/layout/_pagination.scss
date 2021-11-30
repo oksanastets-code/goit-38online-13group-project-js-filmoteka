@@ -22,7 +22,8 @@
   font-weight: 500;
   @include font-properties-cutted(12, 1.33);
 }
-.pagination-custom > .tui-page-btn:hover {
+.pagination-custom > .tui-page-btn:hover,
+.pagination-custom > .tui-page-btn:focus {
   border-radius: 5px;
 }
 .pagination-custom > strong.tui-is-selected {
@@ -35,6 +36,11 @@
   background-color: $accent-text-color;
   font-weight: 500;
   @include font-properties-cutted(12, 1.33);
+}
+.pagination-custom > strong.tui-is-selected:hover,
+.pagination-custom > strong.tui-is-selected:focus {
+  background-color: $accent-text-color;
+  // cursor: pointer;
 }
 .pagination-custom > .tui-page-btn.tui-prev,
 .pagination-custom > .tui-page-btn.tui-next {
