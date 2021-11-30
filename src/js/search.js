@@ -8,10 +8,10 @@ const searchMovies = new ApiService();
 // const searchMovies = new ApiService();
 
 refs.searchForm.addEventListener('submit', onSearch);
+refs.searchForm.addEventListener('click', onSearchClick);
 
 function onSearch(e) {
   e.preventDefault();
- 
   searchMovies.Query = e.currentTarget.elements.query.value;
   let query = e.currentTarget.elements.query.value;
   // Verification on empty request
@@ -28,7 +28,29 @@ function onSearch(e) {
 
   onSearchMovies(e, query);
 }
+function onSearchClick(e) {
+  e.preventDefault();
+ // Quard Clause
+  if (e.target.nodeName !== 'use') {
+    console.log(e.target.nodeName);
+        return;
+    } console.log(e.target.nodeName);
+  searchMovies.Query = e.currentTarget.elements.query.value;
+  let query = e.currentTarget.elements.query.value;
+  // Verification on empty request
+  if (!searchMovies.query.trim()) {
+    refs.notificationText.style.opacity = '1';
+    refs.searchIconEl.classList.add('visually-hidden');
+    setTimeout(() => {
+      refs.headerInputField.value = '';
+      refs.notificationText.style.opacity = '0';
+      refs.searchIconEl.classList.remove('visually-hidden');
+    }, 2000);
+    return;
+  }
 
+  onSearchMovies(e, query);
+}
 function onSearchMovies(e, query) {
   e.preventDefault();
   searchMovies.getMoviesByQuery().then(data => {
