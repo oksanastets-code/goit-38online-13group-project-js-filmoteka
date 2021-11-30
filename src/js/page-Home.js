@@ -7,19 +7,30 @@ import { renderPaginationTrendMovies , renderPagination , usePagination } from '
 // import onScreenChange from './pagination';
 
 refs.homeRef.addEventListener('click', onHomeClick);
+refs.mediaTablet.addEventListener('change', onScreenChange);
 
+function onScreenChange(e) {
+
+   if (refs.mediaTablet.matches) {
+    return 5;
+  } return 9;
+ 
+}
 const getMovies = new API();
-
  getMovies.getTrendingMovies(1)
   .then(r => {
     renderMovieCard(r);
     // if (refs.mediaTablet.matches) {
-    //   renderPaginationTrendMoviesForMobiles(getMovies.getTotalPages(), 1, 20)
-    // } renderPaginationTrendMoviesforTablet(getMovies.getTotalPages(), 1, 20);
+    //  renderPagination('trends', getMovies.getTotalPages(), 20, 5, 1);
+    // } renderPagination('trends', getMovies.getTotalPages(), 20, 9, 1);
 
+
+    
     // нижче змінено кількість кнопок
     // renderPagination('trends', getMovies.getTotalPages(), 20, 12, 1);
-    renderPagination('trends', getMovies.getTotalPages(), 20, 5, 1);
+    renderPagination('trends', getMovies.getTotalPages(), 20, onScreenChange(), 1);
+
+    //  renderPagination('trends', getMovies.getTotalPages(), 20, onScreenChange, 1);
   } 
 );
 

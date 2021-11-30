@@ -28,6 +28,6 @@ export default {
   // pagination
   paginationMobile: document.getElementById('pagination-mobile'),
   paginationTablet: document.getElementById('pagination-tablet'),
-  mediaTablet: window.matchMedia('(max-width: 768px)'),
+  mediaTablet: window.matchMedia("(max-width: 768px)"),
   paginationContainer:  document.getElementById('pagination'),
 }
