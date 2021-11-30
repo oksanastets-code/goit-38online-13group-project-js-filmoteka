@@ -16,6 +16,8 @@ body {
     display: flex;
     align-items: center;
     position: absolute;
+    top: 20px;
+    right: auto;
   }
   
   .theme-switch__icon {
@@ -103,7 +105,11 @@ body {
       color: $primary-background-color;
     }
     .movie__infoBox{
-      background-color: $card-text-color;
+      //background-color: $card-text-color;
+  
+    }
+    .movie__info{
+      //color: #fff;
     }
 
   }
