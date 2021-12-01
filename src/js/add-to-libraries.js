@@ -76,7 +76,9 @@ function addToWatchedList(id, btn) {
 }
 
 function removeFromWatchedList(id, btn) {
-  watchedList.pop(id);
+  const index = watchedList.indexOf(`${id}`);
+  watchedList.splice(index, 1);
+  // watchedList.pop(id);
   localStorage.setItem('watchedList', JSON.stringify(watchedList));
   btn.textContent = langText(
     'add to watched',
