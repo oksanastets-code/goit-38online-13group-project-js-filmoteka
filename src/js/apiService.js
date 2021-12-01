@@ -21,7 +21,7 @@ export default class moviesApiService {
         return r;
       })
       .then(({ results }) => {
-          return this.getGenres().then(r => {
+        return this.getGenres().then(r => {
           return results.map(film => ({
             ...film,
             // title: (film.title.length > 35) ? film.title.slice(0, 35) : film.title,
@@ -37,7 +37,7 @@ export default class moviesApiService {
   getMovieById(id) {
     return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${langs}`)
       .then(r => r.json())
-      .then(({ ...results }) => { 
+      .then(({ ...results }) => {
         results.genres = results.genres ? results.genres.map(genre => genre.name).join(', ') : [];
         console.log(results);
         return results;
@@ -133,7 +133,7 @@ export default class moviesApiService {
         if (number === genre.id) {
           genreNames.push(genre.name);
           if (genreNames.length > 3) {
-            genreNames.splice(2, 2, langText('Other', 'Другие', 'Інші'));
+            genreNames.splice(2, 2, langText('Other', 'другие', 'Інші'));
             return;
           }
         }
@@ -144,15 +144,19 @@ export default class moviesApiService {
   }
 
   getGenreNameForLibrary(genresList) {
-    let genres = genresList.map(genre => genre.name);
+    let genresListForLibrary = '';
+    const genres = genresList.map(genre => genre.name);
+    genresListForLibrary = genres.join(', ');
     if (genres.length > 3) {
       console.log('ddfwfwef', genres);
-      genres.splice(2, 2, langText('Other', 'Другие', 'Інші'));
+      genres.splice(2, 2, langText('Other', 'другие', 'Інші'));
       console.log('ddfwfwef', genres);
-      return genres;
+      genresListForLibrary = genres.slice(0, 3).join(', ');
+      return genresListForLibrary;
     }
-    return genres;
+    return genresListForLibrary;
   }
+  
   setTotalPages(totalPages) {
     this.totalPages = totalPages;
   }
