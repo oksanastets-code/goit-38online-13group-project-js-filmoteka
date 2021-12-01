@@ -39,7 +39,9 @@ function addToQueueList(id, btn) {
 }
 
 function removeFromQueueList(id, btn) {
-  queueList.pop(id);
+  const index = queueList.indexOf(`${id}`);
+  queueList.splice(index, 1);
+  // queueList.pop(id);
   localStorage.setItem('queueList', JSON.stringify(queueList));
   btn.textContent = langText('add to queue', 'добавить в очередь', 'додати до черги');
   btn.style.backgroundColor = '#ffffff';
