@@ -32,7 +32,7 @@ export function onQueueBtnClick() {
   });
 }
 
-function onWatchedBtnClick() {
+export function onWatchedBtnClick() {
   refs.libraryWatchedBtn.classList.add('is-active-btn');
   refs.libraryQueueBtn.classList.remove('is-active-btn');
   refs.cardsContainerRef.innerHTML = '';
