@@ -5,6 +5,7 @@ import { upBtn } from './up-btn.js';
 import { changeModalLanguage, langText } from './localization.js';
 import { getFromLocalStorage } from './localStorageLang';
 import { onError } from './pnotify';
+import { onQueueBtnClick } from './page-Library.js';
 
 let langs = getFromLocalStorage('lang');
 // console.log(langText('end', 'rueb', 'uknt'));
@@ -39,6 +40,10 @@ function closeModal(event) {
     upBtn.classList.remove('visually-hidden');
     clearFilmCard();
     removeModalListener();
+  }
+  if (refs.libraryRef.classList.contains('is-active-page')) {
+    console.log('хочу оновити список');
+    onQueueBtnClick();
   }
   // console.log('my request:', modalEl);
 }

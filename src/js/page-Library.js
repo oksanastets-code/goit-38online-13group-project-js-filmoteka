@@ -21,7 +21,7 @@ function onLibraryClick(e) {
   onQueueBtnClick();
 }
 
-function onQueueBtnClick() {
+export function onQueueBtnClick() {
   refs.libraryQueueBtn.classList.add('is-active-btn');
   refs.libraryWatchedBtn.classList.remove('is-active-btn');
   refs.paginationContainer.classList.add('visually-hidden');
